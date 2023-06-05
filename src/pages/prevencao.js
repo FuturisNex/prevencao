@@ -3,29 +3,23 @@ import './Prevencao.css';
 
 const Prevencao = () => {
   const [caracteristicas, setCaracteristicas] = useState({
-    nome: '',
-    data: '',
-    hora: '',
-    idade: '',
     genero: '',
-    cor: '',
-    outroCor: '',
+    idadeHomem: '',
+    idadeMulher: ''
   });
 
   const [furto, setFurto] = useState({
     utilizouObjeto: '',
     outroObjeto: '',
     produtoFurtado: '',
-    resumoFurto: '',
-    quemIdentificou: '',
-    outroColaborador: '',
+    resumoFurto: ''
   });
 
   const [inibicao, setInibicao] = useState({
     inibicaoSetor: '',
     inibicaoProduto: '',
     valorRecuperado: '',
-    filial: '',
+    filial: ''
   });
 
   const [etapaAtual, setEtapaAtual] = useState(1);
@@ -34,7 +28,7 @@ const Prevencao = () => {
     const { name, value } = event.target;
     setCaracteristicas((prevValues) => ({
       ...prevValues,
-      [name]: value,
+      [name]: value
     }));
   };
 
@@ -42,7 +36,7 @@ const Prevencao = () => {
     const { name, value } = event.target;
     setFurto((prevValues) => ({
       ...prevValues,
-      [name]: value,
+      [name]: value
     }));
   };
 
@@ -50,7 +44,7 @@ const Prevencao = () => {
     const { name, value } = event.target;
     setInibicao((prevValues) => ({
       ...prevValues,
-      [name]: value,
+      [name]: value
     }));
   };
 
@@ -74,54 +68,6 @@ const Prevencao = () => {
             <h3 className="prevencao__subtitulo">Características</h3>
 
             <div className="prevencao__input-group">
-              <label htmlFor="nome">Nome:</label>
-              <input
-                type="text"
-                id="nome"
-                name="nome"
-                value={caracteristicas.nome}
-                onChange={handleChangeCaracteristicas}
-                required
-              />
-            </div>
-
-            <div className="prevencao__input-group">
-              <label htmlFor="data">Data:</label>
-              <input
-                type="date"
-                id="data"
-                name="data"
-                value={caracteristicas.data}
-                onChange={handleChangeCaracteristicas}
-                required
-              />
-            </div>
-
-            <div className="prevencao__input-group">
-              <label htmlFor="hora">Hora:</label>
-              <input
-                type="time"
-                id="hora"
-                name="hora"
-                value={caracteristicas.hora}
-                onChange={handleChangeCaracteristicas}
-                required
-              />
-            </div>
-
-            <div className="prevencao__input-group">
-              <label htmlFor="idade">Idade:</label>
-              <input
-                type="text"
-                id="idade"
-                name="idade"
-                value={caracteristicas.idade}
-                onChange={handleChangeCaracteristicas}
-                required
-              />
-            </div>
-
-            <div className="prevencao__input-group">
               <label htmlFor="genero">Gênero:</label>
               <select
                 id="genero"
@@ -131,60 +77,81 @@ const Prevencao = () => {
                 required
               >
                 <option value="">Selecione</option>
-                <option value="masculino">Masculino</option>
-                <option value="feminino">Feminino</option>
-                <option value="outro">Outro</option>
+                <option value="homem">Homem</option>
+                <option value="mulher">Mulher</option>
+                <option value="ambos">Ambos</option>
               </select>
             </div>
 
-            {caracteristicas.genero === 'outro' && (
+            {caracteristicas.genero === 'ambos' && (
+              <>
+                <div className="prevencao__input-group">
+                  <label htmlFor="idadeHomem">Idade do Homem:</label>
+                  <input
+                    type="text"
+                    id="idadeHomem"
+                    name="idadeHomem"
+                    pattern="[0-9]*"
+                    value={caracteristicas.idadeHomem}
+                    onChange={handleChangeCaracteristicas}
+                    required
+                  />
+                </div>
+
+                <div className="prevencao__input-group">
+                  <label htmlFor="idadeMulher">Idade da Mulher:</label>
+                  <input
+                    type="text"
+                    id="idadeMulher"
+                    name="idadeMulher"
+                    pattern="[0-9]*"
+                    value={caracteristicas.idadeMulher}
+                    onChange={handleChangeCaracteristicas}
+                    required
+                  />
+                </div>
+              </>
+            )}
+
+            {caracteristicas.genero === 'homem' && (
               <div className="prevencao__input-group">
-                <label htmlFor="outroGenero">Outro Gênero:</label>
+                <label htmlFor="idadeHomem">Idade do Homem:</label>
                 <input
                   type="text"
-                  id="outroGenero"
-                  name="outroGenero"
-                  value={caracteristicas.outroGenero}
+                  id="idadeHomem"
+                  name="idadeHomem"
+                  pattern="[0-9]*"
+                  value={caracteristicas.idadeHomem}
                   onChange={handleChangeCaracteristicas}
                   required
                 />
               </div>
             )}
 
-            <div className="prevencao__input-group">
-              <label htmlFor="cor">Cor:</label>
-              <select
-                id="cor"
-                name="cor"
-                value={caracteristicas.cor}
-                onChange={handleChangeCaracteristicas}
-                required
+            {caracteristicas.genero === 'mulher' && (
+              <div className="prevencao__input-group">
+                <label htmlFor="idadeMulher">Idade da Mulher:</label>
+                <input
+                  type="text"
+                  id="idadeMulher"
+                  name="idadeMulher"
+                  pattern="[0-9]*"
+                  value={caracteristicas.idadeMulher}
+                  onChange={handleChangeCaracteristicas}
+                  required
+                />
+              </div>
+            )}
+
+            <div className="prevencao__btn-container">
+              <button
+                type="button"
+                className="prevencao__btn"
+                onClick={handleAvancarClick}
               >
-                <option value="">Selecione</option>
-                <option value="azul">Azul</option>
-                <option value="vermelho">Vermelho</option>
-                <option value="amarelo">Amarelo</option>
-                <option value="outro">Outro</option>
-              </select>
+                Avançar
+              </button>
             </div>
-
-            {caracteristicas.cor === 'outro' && (
-              <div className="prevencao__input-group">
-                <label htmlFor="outroCor">Outra Cor:</label>
-                <input
-                  type="text"
-                  id="outroCor"
-                  name="outroCor"
-                  value={caracteristicas.outroCor}
-                  onChange={handleChangeCaracteristicas}
-                  required
-                />
-              </div>
-            )}
-
-            <button type="button" className="prevencao__avancar" onClick={handleAvancarClick}>
-              Avançar
-            </button>
           </>
         )}
 
@@ -193,26 +160,9 @@ const Prevencao = () => {
             <h3 className="prevencao__subtitulo">Furto</h3>
 
             <div className="prevencao__input-group">
-              <label htmlFor="filial">Loja:</label>
-              <select
-                id="filial"
-                name="filial"
-                value={inibicao.filial}
-                onChange={handleChangeInibicao}
-                required
-              >
-                <option value="">Selecione uma loja</option>
-                <option value="1">Santa Mônica</option>
-                <option value="11">Tomé de Souza</option>
-                <option value="2">Castro Alves</option>
-                <option value="3">Tomba</option>
-                <option value="4">Fraga Maia</option>
-                <option value="5">Artemia Pires</option>
-              </select>
-            </div>
-
-            <div className="prevencao__input-group">
-              <label htmlFor="utilizouObjeto">Utilizou algum objeto para praticar o furto?</label>
+              <label htmlFor="utilizouObjeto">
+                Utilizou algum objeto para praticar o furto?
+              </label>
               <select
                 id="utilizouObjeto"
                 name="utilizouObjeto"
@@ -223,13 +173,13 @@ const Prevencao = () => {
                 <option value="">Selecione</option>
                 <option value="CFTV">CFTV</option>
                 <option value="Prevenção de Piso">Prevenção de Piso</option>
-                <option value="Outro">Outro</option>
+                <option value="Outro colaborador">Outro colaborador</option>
               </select>
             </div>
 
-            {furto.utilizouObjeto === 'Outro' && (
+            {furto.utilizouObjeto === 'Outro colaborador' && (
               <div className="prevencao__input-group">
-                <label htmlFor="outroObjeto">Outro Objeto:</label>
+                <label htmlFor="outroObjeto">Descreva o outro colaborador:</label>
                 <input
                   type="text"
                   id="outroObjeto"
@@ -241,60 +191,86 @@ const Prevencao = () => {
               </div>
             )}
 
+            <div className="prevencao__btn-container">
+              <button
+                type="button"
+                className="prevencao__btn"
+                onClick={() => setEtapaAtual((prevEtapa) => prevEtapa - 1)}
+              >
+                Voltar
+              </button>
+              <button type="submit" className="prevencao__btn">
+                Enviar
+              </button>
+            </div>
+          </>
+        )}
+
+        {etapaAtual === 3 && (
+          <>
+            <h3 className="prevencao__subtitulo">Inibição</h3>
+
             <div className="prevencao__input-group">
-              <label htmlFor="produtoFurtado">Produto Furtado:</label>
+              <label htmlFor="inibicaoSetor">Setor da inibição:</label>
               <input
                 type="text"
-                id="produtoFurtado"
-                name="produtoFurtado"
-                value={furto.produtoFurtado}
-                onChange={handleChangeFurto}
+                id="inibicaoSetor"
+                name="inibicaoSetor"
+                value={inibicao.inibicaoSetor}
+                onChange={handleChangeInibicao}
                 required
               />
             </div>
 
             <div className="prevencao__input-group">
-              <label htmlFor="resumoFurto">Resumo do Furto:</label>
-              <textarea
-                id="resumoFurto"
-                name="resumoFurto"
-                value={furto.resumoFurto}
-                onChange={handleChangeFurto}
+              <label htmlFor="inibicaoProduto">Produto da inibição:</label>
+              <input
+                type="text"
+                id="inibicaoProduto"
+                name="inibicaoProduto"
+                value={inibicao.inibicaoProduto}
+                onChange={handleChangeInibicao}
                 required
               />
             </div>
 
             <div className="prevencao__input-group">
-              <label htmlFor="quemIdentificou">Quem identificou?</label>
-              <select
-                id="quemIdentificou"
-                name="quemIdentificou"
-                value={furto.quemIdentificou}
-                onChange={handleChangeFurto}
+              <label htmlFor="valorRecuperado">Valor recuperado:</label>
+              <input
+                type="text"
+                id="valorRecuperado"
+                name="valorRecuperado"
+                pattern="[0-9]*"
+                value={inibicao.valorRecuperado}
+                onChange={handleChangeInibicao}
                 required
+              />
+            </div>
+
+            <div className="prevencao__input-group">
+              <label htmlFor="filial">Filial:</label>
+              <input
+                type="text"
+                id="filial"
+                name="filial"
+                value={inibicao.filial}
+                onChange={handleChangeInibicao}
+                required
+              />
+            </div>
+
+            <div className="prevencao__btn-container">
+              <button
+                type="button"
+                className="prevencao__btn"
+                onClick={() => setEtapaAtual((prevEtapa) => prevEtapa - 1)}
               >
-                <option value="">Selecione</option>
-                <option value="CFTV">CFTV</option>
-                <option value="Prevenção de Piso">Prevenção de Piso</option>
-                <option value="Outro">Outro</option>
-              </select>
+                Voltar
+              </button>
+              <button type="submit" className="prevencao__btn">
+                Enviar
+              </button>
             </div>
-
-            {furto.quemIdentificou === 'Outro' && (
-              <div className="prevencao__input-group">
-                <label htmlFor="outroColaborador">Outro Colaborador:</label>
-                <input
-                  type="text"
-                  id="outroColaborador"
-                  name="outroColaborador"
-                  value={furto.outroColaborador}
-                  onChange={handleChangeFurto}
-                  required
-                />
-              </div>
-            )}
-
-            <button type="submit" className="prevencao__enviar">Enviar</button>
           </>
         )}
       </form>
