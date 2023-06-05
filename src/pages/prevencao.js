@@ -247,6 +247,36 @@ const Prevencao = () => {
             </div>
 
             <div className="prevencao__input-group">
+              <label htmlFor="quemIdentificou">Quem identificou?</label>
+              <select
+                id="quemIdentificou"
+                name="quemIdentificou"
+                value={furto.quemIdentificou}
+                onChange={handleChangeFurto}
+                required
+              >
+                <option value="">Selecione</option>
+                <option value="CFTV">CFTV</option>
+                <option value="Prevenção de Piso">Prevenção de Piso</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </div>
+
+            {furto.quemIdentificou === 'Outro' && (
+              <div className="prevencao__input-group">
+                <label htmlFor="outroColaborador">Outro Colaborador:</label>
+                <input
+                  type="text"
+                  id="outroColaborador"
+                  name="outroColaborador"
+                  value={furto.outroColaborador}
+                  onChange={handleChangeFurto}
+                  required
+                />
+              </div>
+            )}
+
+            <div className="prevencao__input-group">
               <label htmlFor="utilizouObjeto">Utilizou algum objeto para praticar o furto?</label>
               <select
                 id="utilizouObjeto"
@@ -299,36 +329,6 @@ const Prevencao = () => {
                 required
               />
             </div>
-
-            <div className="prevencao__input-group">
-              <label htmlFor="quemIdentificou">Quem identificou?</label>
-              <select
-                id="quemIdentificou"
-                name="quemIdentificou"
-                value={furto.quemIdentificou}
-                onChange={handleChangeFurto}
-                required
-              >
-                <option value="">Selecione</option>
-                <option value="CFTV">CFTV</option>
-                <option value="Prevenção de Piso">Prevenção de Piso</option>
-                <option value="Outro">Outro</option>
-              </select>
-            </div>
-
-            {furto.quemIdentificou === 'Outro' && (
-              <div className="prevencao__input-group">
-                <label htmlFor="outroColaborador">Outro Colaborador:</label>
-                <input
-                  type="text"
-                  id="outroColaborador"
-                  name="outroColaborador"
-                  value={furto.outroColaborador}
-                  onChange={handleChangeFurto}
-                  required
-                />
-              </div>
-            )}
 
             <button type="submit" className="prevencao__submit">Enviar</button>
           </>
