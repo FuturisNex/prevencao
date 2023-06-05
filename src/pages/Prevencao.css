@@ -1,0 +1,114 @@
+.prevencao {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.prevencao__titulo {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.prevencao__form {
+    margin-top: 20px;
+}
+
+.prevencao__input-group {
+    margin-bottom: 20px;
+}
+
+.prevencao__input-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.prevencao__input-group input,
+.prevencao__input-group select,
+.prevencao__input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.prevencao__input-group textarea {
+    resize: vertical;
+}
+
+.prevencao__input-group input:focus,
+.prevencao__input-group select:focus,
+.prevencao__input-group textarea:focus {
+    outline: none;
+    border-color: #4caf50;
+}
+
+.prevencao__input-group input::placeholder,
+.prevencao__input-group select::placeholder,
+.prevencao__input-group textarea::placeholder {
+    color: #999;
+}
+
+.prevencao__submit {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #4caf50;
+    /* Cor verde */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.prevencao__submit:hover {
+    background-color: #45a049;
+}
+
+.prevencao__avancar {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.prevencao__avancar:hover {
+    background-color: #1976d2;
+}
+
+@media screen and (max-width: 768px) {
+
+    .prevencao__input-group input,
+    .prevencao__input-group select {
+        width: calc(100% - 0px);
+        margin-right: 12px;
+    }
+
+    .prevencao {
+        max-width: 100%;
+        padding: 40px;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    .prevencao__titulo {
+        font-size: 25px;
+        margin-bottom: 40px;
+    }
+}
