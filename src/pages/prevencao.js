@@ -196,9 +196,9 @@ const Prevencao = () => {
                 required
               >
                 <option value="">Selecione</option>
-                <option value="azul">Azul</option>
-                <option value="vermelho">Vermelho</option>
-                <option value="amarelo">Amarelo</option>
+                <option value="Branco">Branco</option>
+                <option value="Negro">Negro</option>
+                <option value="Pardo">Pardo</option>
                 <option value="outro">Outro</option>
               </select>
             </div>
@@ -256,8 +256,9 @@ const Prevencao = () => {
                 required
               >
                 <option value="">Selecione</option>
-                <option value="CFTV">CFTV</option>
-                <option value="Prevenção de Piso">Prevenção de Piso</option>
+                <option value="Mochila">Mochila</option>
+                <option value="Sacola">Sacola</option>
+                <option value="Roupa">Roupa</option>
                 <option value="Outro">Outro</option>
               </select>
             </div>
@@ -329,7 +330,7 @@ const Prevencao = () => {
               </div>
             )}
 
-            <button type="submit" className="prevencao__enviar">Enviar</button>
+            <button type="submit" className="prevencao__submit">Enviar</button>
           </>
         )}
       </form>
