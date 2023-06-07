@@ -40,7 +40,7 @@ try {
   formData.append("Hora", hora);
   formData.append("Genero", genero);
   formData.append("Idade", idade);
-  formData.append("Loja", filial);
+  formData.append("Loja", loja);
   formData.append("Departamento", departamento);
   formData.append("Identificou", identificou);
   formData.append("Utilizou", utilizou);
@@ -203,12 +203,12 @@ try {
 
             {identificou === 'Outro' && (
               <div className="prevencao__input-group">
-                <label htmlFor="outroColaborador">Outro Colaborador:</label>
+                <label htmlFor="identificou">Outro Colaborador:</label>
                 <input
                   type="text"
-                  id="outroColaborador"
-                  name="outroColaborador"
-                  value={outroColaborador}
+                  id="identificou"
+                  name="identificou"
+                  value={identificou}
                   required
                 />
               </div>
@@ -232,12 +232,12 @@ try {
 
             {utilizou === 'Outro' && (
               <div className="prevencao__input-group">
-                <label htmlFor="outroObjeto">Outro Objeto:</label>
+                <label htmlFor="utilizou">Outro Objeto:</label>
                 <input
                   type="text"
-                  id="outroObjeto"
-                  name="outroObjeto"
-                  value={outroObjeto}
+                  id="utilizou"
+                  name="utilizou"
+                  value={utilizou}
                   required
                 />
               </div>
