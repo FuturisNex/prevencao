@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Prevencao.css';
+import logo from "./grupo.png";
 
 const Prevencao = () => {
   const [caracteristicas, setCaracteristicas] = useState({
@@ -9,8 +10,6 @@ const Prevencao = () => {
     idadeHomem: '',
     idadeMulher: '',
     genero: '',
-    cor: '',
-    outroCor: '',
   });
 
   const [furto, setFurto] = useState({
@@ -27,6 +26,7 @@ const Prevencao = () => {
     inibicaoProduto: '',
     valorRecuperado: '',
     filial: '',
+    departamento: '',
   });
 
   const [etapaAtual, setEtapaAtual] = useState(1);
@@ -61,14 +61,32 @@ const Prevencao = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Aqui você pode adicionar a lógica para enviar os dados do formulário
-    // e redefinir o estado do formulário, se necessário.
+
+    const formData = {
+      ...caracteristicas,
+      ...furto,
+      ...inibicao,
+    };
+
+    // Envia os dados para o Apps Script
+    fetch('https://script.google.com/macros/s/AKfycbzXLnbMafEKplUidQDS6lzeA_Jr_5yfgaJthlnktmlUQTHrP5L4eFAymS8daDT7y2HD/exec', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        console.log(data); // Exibe a resposta do Apps Script
+        // Faça o que for necessário após enviar os dados com sucesso
+      })
+      .catch((error) => {
+        console.error(error); // Trate qualquer erro ocorrido
+      });
   };
 
   return (
     <div className="prevencao">
+      <img src={logo} alt="Logo" className="logo-form" />
       <h2 className="prevencao__titulo">Formulário de Prevenção</h2>
-
       <form className="prevencao__form" onSubmit={handleSubmit}>
         {etapaAtual === 1 && (
           <>
@@ -110,107 +128,76 @@ const Prevencao = () => {
               />
             </div>
 
-<div className="prevencao__input-group">
-  <label htmlFor="genero">Gênero:</label>
-  <select
-    id="genero"
-    name="genero"
-    value={caracteristicas.genero}
-    onChange={handleChangeCaracteristicas}
-    required
-  >
-    <option value="">Selecione</option>
-    <option value="homem">Homem</option>
-    <option value="mulher">Mulher</option>
-    <option value="ambos">Ambos</option>
-  </select>
-</div>
-
-{caracteristicas.genero === 'ambos' && (
-  <>
-    <div className="prevencao__input-group">
-      <label htmlFor="idadeHomem">Idade do Homem:</label>
-      <input
-        type="text"
-        id="idadeHomem"
-        name="idadeHomem"
-        pattern="[0-9]*"
-        value={caracteristicas.idadeHomem}
-        onChange={handleChangeCaracteristicas}
-        required
-      />
-    </div>
-
-    <div className="prevencao__input-group">
-      <label htmlFor="idadeMulher">Idade da Mulher:</label>
-      <input
-        type="text"
-        id="idadeMulher"
-        name="idadeMulher"
-        pattern="[0-9]*"
-        value={caracteristicas.idadeMulher}
-        onChange={handleChangeCaracteristicas}
-        required
-      />
-    </div>
-  </>
-)}
-
-{caracteristicas.genero === 'homem' && (
-  <div className="prevencao__input-group">
-    <label htmlFor="idadeHomem">Idade do Homem:</label>
-    <input
-      type="text"
-      id="idadeHomem"
-      name="idadeHomem"
-      pattern="[0-9]*"
-      value={caracteristicas.idadeHomem}
-      onChange={handleChangeCaracteristicas}
-      required
-    />
-  </div>
-)}
-
-{caracteristicas.genero === 'mulher' && (
-  <div className="prevencao__input-group">
-    <label htmlFor="idadeMulher">Idade da Mulher:</label>
-    <input
-      type="text"
-      id="idadeMulher"
-      name="idadeMulher"
-      pattern="[0-9]*"
-      value={caracteristicas.idadeMulher}
-      onChange={handleChangeCaracteristicas}
-      required
-    />
-  </div>
-)}
-
             <div className="prevencao__input-group">
-              <label htmlFor="cor">Cor:</label>
+              <label htmlFor="genero">Gênero:</label>
               <select
-                id="cor"
-                name="cor"
-                value={caracteristicas.cor}
+                id="genero"
+                name="genero"
+                value={caracteristicas.genero}
                 onChange={handleChangeCaracteristicas}
                 required
               >
                 <option value="">Selecione</option>
-                <option value="Branco">Branco</option>
-                <option value="Negro">Negro</option>
-                <option value="Pardo">Pardo</option>
-                <option value="outro">Outro</option>
+                <option value="homem">Homem</option>
+                <option value="mulher">Mulher</option>
+                <option value="ambos">Ambos</option>
               </select>
             </div>
 
-            {caracteristicas.cor === 'outro' && (
+            {caracteristicas.genero === 'ambos' && (
+              <>
+                <div className="prevencao__input-group">
+                  <label htmlFor="idadeHomem">Idade do Homem:</label>
+                  <input
+                    type="text"
+                    id="idadeHomem"
+                    name="idadeHomem"
+                    pattern="[0-9]*"
+                    value={caracteristicas.idadeHomem}
+                    onChange={handleChangeCaracteristicas}
+                    required
+                  />
+                </div>
+
+                <div className="prevencao__input-group">
+                  <label htmlFor="idadeMulher">Idade da Mulher:</label>
+                  <input
+                    type="text"
+                    id="idadeMulher"
+                    name="idadeMulher"
+                    pattern="[0-9]*"
+                    value={caracteristicas.idadeMulher}
+                    onChange={handleChangeCaracteristicas}
+                    required
+                  />
+                </div>
+              </>
+            )}
+
+            {caracteristicas.genero === 'homem' && (
               <div className="prevencao__input-group">
-                <label htmlFor="outroCor">Outra Cor:</label>
+                <label htmlFor="idadeHomem">Idade do Homem:</label>
                 <input
                   type="text"
-                  id="outroCor"
-                  name="outroCor"
-                  value={caracteristicas.outroCor}
+                  id="idadeHomem"
+                  name="idadeHomem"
+                  pattern="[0-9]*"
+                  value={caracteristicas.idadeHomem}
+                  onChange={handleChangeCaracteristicas}
+                  required
+                />
+              </div>
+            )}
+
+            {caracteristicas.genero === 'mulher' && (
+              <div className="prevencao__input-group">
+                <label htmlFor="idadeMulher">Idade da Mulher:</label>
+                <input
+                  type="text"
+                  id="idadeMulher"
+                  name="idadeMulher"
+                  pattern="[0-9]*"
+                  value={caracteristicas.idadeMulher}
                   onChange={handleChangeCaracteristicas}
                   required
                 />
@@ -243,6 +230,22 @@ const Prevencao = () => {
                 <option value="3">Tomba</option>
                 <option value="4">Fraga Maia</option>
                 <option value="5">Artemia Pires</option>
+              </select>
+            </div>
+
+            <div className="prevencao__input-group">
+              <label htmlFor="departamento">Departamento:</label>
+              <select
+                id="departamento"
+                name="departamento"
+                value={inibicao.departamento}
+                onChange={handleChangeInibicao}
+                required
+              >
+                <option value="">Selecione um departamento</option>
+                <option value="Perfumaria">Perfumaria</option>
+                <option value="Frios">Frios</option>
+                <option value="Comodes">Comodes</option>
               </select>
             </div>
 
@@ -315,6 +318,19 @@ const Prevencao = () => {
                 name="produtoFurtado"
                 value={furto.produtoFurtado}
                 onChange={handleChangeFurto}
+                required
+              />
+            </div>
+
+            <div className="prevencao__input-group">
+              <label htmlFor="valorRecuperado">Valor Recuperado:</label>
+              <input
+                type="text"
+                id="valorRecuperado"
+                name="valorRecuperado"
+                pattern="[0-9]*([,.][0-9]+)?"
+                value={inibicao.valorRecuperado}
+                onChange={handleChangeInibicao}
                 required
               />
             </div>
