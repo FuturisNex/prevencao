@@ -27,6 +27,12 @@ const Prevencao = () => {
     const { name, value } = event.target;
     if (name === "nome") {
       setNome(value);
+    } else if (name === "data") {
+      setData(value);
+    }
+    } else if (name === "hora") {
+      setHora(value);
+    }
     } else if (name === "genero") {
       setGenero(value);
     } else if (name === "idade") {
@@ -163,7 +169,7 @@ try {
                 id="genero"
                 name="genero"
                 value={genero}
-                onChange={handleChange}
+                onChange={(event) => setGenero(event.target.value)}
                 required
               >
                 <option value="">Selecione</option>
