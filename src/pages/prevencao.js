@@ -12,10 +12,10 @@ const Prevencao = () => {
   const [loja, setLoja] = useState("");
   const [departamento, setDepartamento] = useState("");
   const [identificou, setIdentificou] = useState("");
-  const [utilizou, setUtilizou] = useState(false);
+  const [utilizou, setUtilizou] = useState("");
   const [produto, setProduto] = useState("");
-  const [recuperado, setRecuperado] = useState(false);
-  const [resumo, setResumo] = useState(false);
+  const [recuperado, setRecuperado] = useState("");
+  const [resumo, setResumo] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
