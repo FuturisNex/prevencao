@@ -118,7 +118,7 @@ try {
                 type="time"
                 id="hora"
                 name="hora"
-                value={caracteristicas.hora}
+                value={hora}
                 onChange={handleChangeCaracteristicas}
                 required
               />
@@ -129,7 +129,7 @@ try {
               <select
                 id="genero"
                 name="genero"
-                value={caracteristicas.genero}
+                value={genero}
                 onChange={handleChangeCaracteristicas}
                 required
               >
@@ -147,7 +147,7 @@ try {
                     id="idade"
                     name="idade"
                     pattern="[0-9]*"
-                    value={caracteristicas.idade}
+                    value={idade}
                     onChange={handleChangeCaracteristicas}
                     required
                   />
@@ -160,7 +160,7 @@ try {
               <select
                 id="filial"
                 name="filial"
-                value={inibicao.filial}
+                value={filial}
                 onChange={handleChangeInibicao}
                 required
               >
@@ -179,7 +179,7 @@ try {
               <select
                 id="departamento"
                 name="departamento"
-                value={inibicao.departamento}
+                value={departamento}
                 onChange={handleChangeInibicao}
                 required
               >
@@ -195,7 +195,7 @@ try {
               <select
                 id="identificou"
                 name="identificou"
-                value={furto.identificou}
+                value={identificou}
                 onChange={handleChangeFurto}
                 required
               >
@@ -213,7 +213,7 @@ try {
                   type="text"
                   id="outroColaborador"
                   name="outroColaborador"
-                  value={furto.outroColaborador}
+                  value={outroColaborador}
                   onChange={handleChangeFurto}
                   required
                 />
@@ -225,7 +225,7 @@ try {
               <select
                 id="utilizou"
                 name="utilizou"
-                value={furto.utilizou}
+                value={utilizou}
                 onChange={handleChangeFurto}
                 required
               >
@@ -244,7 +244,7 @@ try {
                   type="text"
                   id="outroObjeto"
                   name="outroObjeto"
-                  value={furto.outroObjeto}
+                  value={outroObjeto}
                   onChange={handleChangeFurto}
                   required
                 />
@@ -257,7 +257,7 @@ try {
                 type="text"
                 id="produto"
                 name="produto"
-                value={furto.produto}
+                value={produto}
                 onChange={handleChangeFurto}
                 required
               />
@@ -270,7 +270,7 @@ try {
                 id="recuperado"
                 name="recuperado"
                 pattern="[0-9]*([,.][0-9]+)?"
-                value={inibicao.recuperado}
+                value={recuperado}
                 onChange={handleChangeInibicao}
                 required
               />
@@ -281,7 +281,7 @@ try {
               <textarea
                 id="resumo"
                 name="resumo"
-                value={furto.resumo}
+                value={resumo}
                 onChange={handleChangeFurto}
                 required
               />
