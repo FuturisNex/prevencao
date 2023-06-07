@@ -29,10 +29,8 @@ const Prevencao = () => {
       setNome(value);
     } else if (name === "data") {
       setData(value);
-    }
     } else if (name === "hora") {
       setHora(value);
-    }
     } else if (name === "genero") {
       setGenero(value);
     } else if (name === "idade") {
