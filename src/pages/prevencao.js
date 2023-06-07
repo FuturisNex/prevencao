@@ -85,6 +85,11 @@ try {
     setResumo("");
   };
   
+    const formatDate = (date) => {
+    const [year, month, day] = date.split("-");
+    return `${day}/${month}/${year}`;
+  };
+  
   return (
     <div className="prevencao">
       <img src={logo} alt="Logo" className="logo-form" />
