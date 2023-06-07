@@ -163,6 +163,7 @@ try {
                 id="genero"
                 name="genero"
                 value={genero}
+                onChange={handleChange}
                 required
               >
                 <option value="">Selecione</option>
