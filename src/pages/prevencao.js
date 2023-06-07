@@ -220,9 +220,11 @@ try {
                 required
               >
                 <option value="">Selecione um departamento</option>
-                <option value="Perfumaria">Perfumaria</option>
-                <option value="Frios">Frios</option>
                 <option value="Comodes">Comodes</option>
+                <option value="Frios">Frios</option>
+                <option value="Hortifruti">Hortifruti</option>
+                <option value="Higiene">Higiene</option>
+                <option value="Perfumaria">Perfumaria</option>
               </select>
             </div>
 
@@ -238,7 +240,7 @@ try {
                 <option value="">Selecione</option>
                 <option value="CFTV">CFTV</option>
                 <option value="Prevenção de Piso">Prevenção de Piso</option>
-                <option value="Outro">Outro</option>
+                <option value="Outro">Outro Colaborador</option>
               </select>
             </div>
 
