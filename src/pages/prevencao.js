@@ -10,8 +10,9 @@ const Prevencao = () => {
   const [genero, setGenero] = useState("");
   const [idade, setIdade] = useState("");
   const [loja, setLoja] = useState("");
+  const [departamento, setDepartamento] = useState("");
   const [identificou, setIdentificou] = useState("");
-  const [utilizado, setUtilizou] = useState(false);
+  const [utilizou, setUtilizou] = useState(false);
   const [produto, setProduto] = useState("");
   const [recuperado, setRecuperado] = useState(false);
   const [resumo, setResumo] = useState(false);
@@ -40,8 +41,9 @@ try {
   formData.append("Genero", genero);
   formData.append("Idade", idade);
   formData.append("Loja", filial);
+  formData.append("Departamento", departamento);
   formData.append("Identificou", identificou);
-  formData.append("Utilizado", utilizou);
+  formData.append("Utilizou", utilizou);
   formData.append("Produto", produto);
   formData.append("Recuperado", recuperado);
   formData.append("Resumo", resumo);
@@ -75,6 +77,7 @@ try {
     setGenero("");
     setIdade("");
     setLoja("");
+    setDepartamento("");
     setIdentificou("");
     setUtilizou("");
     setProduto("");
@@ -151,11 +154,11 @@ try {
             <h3 className="prevencao__subtitulo">Furto</h3>
 
             <div className="prevencao__input-group">
-              <label htmlFor="filial">Loja:</label>
+              <label htmlFor="loja">Loja:</label>
               <select
-                id="filial"
-                name="filial"
-                value={filial}
+                id="loja"
+                name="loja"
+                value={loja}
                 required
               >
                 <option value="">Selecione uma loja</option>
@@ -198,7 +201,7 @@ try {
               </select>
             </div>
 
-            {quemIdentificou === 'Outro' && (
+            {identificou === 'Outro' && (
               <div className="prevencao__input-group">
                 <label htmlFor="outroColaborador">Outro Colaborador:</label>
                 <input
@@ -227,7 +230,7 @@ try {
               </select>
             </div>
 
-            {utilizouObjeto === 'Outro' && (
+            {utilizou === 'Outro' && (
               <div className="prevencao__input-group">
                 <label htmlFor="outroObjeto">Outro Objeto:</label>
                 <input
