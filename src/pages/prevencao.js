@@ -198,7 +198,7 @@ try {
               </select>
             </div>
 
-            {furto.quemIdentificou === 'Outro' && (
+            {quemIdentificou === 'Outro' && (
               <div className="prevencao__input-group">
                 <label htmlFor="outroColaborador">Outro Colaborador:</label>
                 <input
@@ -227,7 +227,7 @@ try {
               </select>
             </div>
 
-            {furto.utilizouObjeto === 'Outro' && (
+            {utilizouObjeto === 'Outro' && (
               <div className="prevencao__input-group">
                 <label htmlFor="outroObjeto">Outro Objeto:</label>
                 <input
