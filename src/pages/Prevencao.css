@@ -4,7 +4,7 @@
   max-width: 12em;
   height: auto;
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: center;
 }
@@ -20,8 +20,9 @@
 
 .prevencao__titulo {
     text-align: center;
-    font-size: 28px;
+    font-size: 30px;
     margin-bottom: 20px;
+    margin-top: 40px;
 }
 
 .prevencao__form {
