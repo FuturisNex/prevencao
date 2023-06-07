@@ -23,6 +23,31 @@ const Prevencao = () => {
   const [isSending, setIsSending] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    if (name === "nome") {
+      setNome(value);
+    } else if (name === "genero") {
+      setGenero(value);
+    } else if (name === "idade") {
+      setIdade(value);
+    } else if (name === "loja") {
+      setLoja(value);
+    } else if (name === "departamento") {
+      setDepartamento(value);
+    } else if (name === "identificou") {
+      setIdentificou(value);
+    } else if (name === "utilizou") {
+      setUtilizou(value);
+    } else if (name === "produto") {
+      setProduto(value);
+    } else if (name === "recuperado") {
+      setRecuperado(value);
+    } else if (name === "resumo") {
+      setResumo(value);
+    }
+  };  
+  
 const handleSubmit = async (event) => {
 event.preventDefault();
 if (isSubmitting) {
