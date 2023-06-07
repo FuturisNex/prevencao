@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Prevencao.css';
 import logo from "./grupo.png";
+import axios from "axios";
 
 const Prevencao = () => {
   const [caracteristicas, setCaracteristicas] = useState({
@@ -68,21 +69,18 @@ const Prevencao = () => {
       ...inibicao,
     };
 
-    // Envia os dados para o Apps Script
-fetch('https://script.google.com/macros/s/AKfycbzXLnbMafEKplUidQDS6lzeA_Jr_5yfgaJthlnktmlUQTHrP5L4eFAymS8daDT7y2HD/exec', {
-  method: 'POST',
-  mode: 'no-cors', // Adicione esta linha
-  body: JSON.stringify(formData),
-})
-.then((response) => response.text())
-.then((data) => {
-  console.log(data);
-  // Faça o que for necessário após enviar os dados com sucesso
-})
-.catch((error) => {
-  console.error(error);
-});
-
+    // Envia os dados para a planilha do Google
+    axios
+      .post('https://script.google.com/macros/s/AKfycbzXLnbMafEKplUidQDS6lzeA_Jr_5yfgaJthlnktmlUQTHrP5L4eFAymS8daDT7y2HD/exec', formData)
+      .then((response) => {
+        console.log(response.data);
+        // Faça o que for necessário após enviar os dados com sucesso
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  
   return (
     <div className="prevencao">
       <img src={logo} alt="Logo" className="logo-form" />
