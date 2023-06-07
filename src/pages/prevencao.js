@@ -54,6 +54,7 @@ const Prevencao = () => {
   
 const handleSubmit = async (event) => {
 event.preventDefault();
+  
 if (isSubmitting) {
   return;
 }
