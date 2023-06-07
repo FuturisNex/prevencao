@@ -4,103 +4,88 @@ import logo from "./grupo.png";
 import axios from "axios";
 
 const Prevencao = () => {
-  const [caracteristicas, setCaracteristicas] = useState({
-    nome: '',
-    data: '',
-    hora: '',
-    idadeHomem: '',
-    idadeMulher: '',
-    genero: '',
-  });
-
-  const [furto, setFurto] = useState({
-    utilizouObjeto: '',
-    outroObjeto: '',
-    produtoFurtado: '',
-    resumoFurto: '',
-    quemIdentificou: '',
-    outroColaborador: '',
-  });
-
-  const [inibicao, setInibicao] = useState({
-    inibicaoSetor: '',
-    inibicaoProduto: '',
-    valorRecuperado: '',
-    filial: '',
-    departamento: '',
-  });
-
-  const [etapaAtual, setEtapaAtual] = useState(1);
-
-  const handleChangeCaracteristicas = (event) => {
-    const { name, value } = event.target;
-    setCaracteristicas((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  };
-
-  const handleChangeFurto = (event) => {
-    const { name, value } = event.target;
-    setFurto((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  };
-
-  const handleChangeInibicao = (event) => {
-    const { name, value } = event.target;
-    setInibicao((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  };
-
-  const handleAvancarClick = () => {
-    setEtapaAtual((prevEtapa) => prevEtapa + 1);
-  };
+  const [nome, setNome] = useState("");
+  const [data, setData] = useState("");
+  const [hora, setHora] = useState("");
+  const [genero, setGenero] = useState("");
+  const [idade, setIdade] = useState("");
+  const [loja, setLoja] = useState("");
+  const [identificou, setIdentificou] = useState("");
+  const [utilizado, setUtilizou] = useState(false);
+  const [produto, setProduto] = useState("");
+  const [recuperado, setRecuperado] = useState(false);
+  const [resumo, setResumo] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [isSending, setIsSending] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
 const handleSubmit = async (event) => {
-  event.preventDefault();
+event.preventDefault();
+if (isSubmitting) {
+  return;
+}
 
-  if (isSubmitting) {
-    return;
+setIsSubmitting(true);
+setErrorMessage("");
+setSuccessMessage("");
+
+try {
+  const formData = new FormData();
+  formData.append("Nome", nome);
+  formData.append("Data", formatDate(data));
+  formData.append("Hora", hora);
+  formData.append("Genero", genero);
+  formData.append("Idade", idade);
+  formData.append("Loja", filial);
+  formData.append("Identificou", identificou);
+  formData.append("Utilizado", utilizou);
+  formData.append("Produto", produto);
+  formData.append("Recuperado", recuperado);
+  formData.append("Resumo", resumo);
+
+  const response = await axios.post(
+    "https://script.google.com/macros/s/AKfycbyaF4yRbmVH-x6SOJz78Ui9O-ua-NuCq-J5SUgo5PofZopLXSvTAha8Ye8SfDQgK2kf/exec",
+    formData
+  );
+
+  if (response.status === 200) {
+    setSuccessMessage(response.data);
+    resetForm();
+    setIsSubmitted(true);
+  } else {
+    throw new Error(
+      "Erro ao enviar formulário. Tente novamente mais tarde."
+    );
   }
+} catch (error) {
+  console.error(error);
+  setErrorMessage(error.message);
+} finally {
+  setIsSubmitting(false);
+}
+  };
 
-  setIsSubmitting(true);
-  setErrorMessage("");
-  setSuccessMessage("");
-
-  try {
-    const formData = new FormData();
-    // ... adicione os dados do formulário ao formData
-
-    const response = await axios.post('https://script.google.com/macros/s/AKfycbyaF4yRbmVH-x6SOJz78Ui9O-ua-NuCq-J5SUgo5PofZopLXSvTAha8Ye8SfDQgK2kf/exec', formData, {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-    });
-
-    if (response.status === 200) {
-      // ... manipule a resposta de sucesso
-    } else {
-      throw new Error("Erro ao enviar formulário. Tente novamente mais tarde.");
-    }
-  } catch (error) {
-    console.error(error);
-    setErrorMessage(error.message);
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+  const resetForm = () => {
+    setNome("");
+    setData("");
+    setHora("");
+    setGenero("");
+    setIdade("");
+    setLoja("");
+    setIdentificou("");
+    setUtilizou("");
+    setProduto("");
+    setRecuperado("");
+    setResumo("");
+  };
   
   return (
     <div className="prevencao">
       <img src={logo} alt="Logo" className="logo-form" />
       <h2 className="prevencao__titulo">Formulário de Prevenção</h2>
       <form className="prevencao__form" onSubmit={handleSubmit}>
-        {etapaAtual === 1 && (
-          <>
             <h3 className="prevencao__subtitulo">Características</h3>
 
             <div className="prevencao__input-group">
@@ -155,74 +140,19 @@ const handleSubmit = async (event) => {
               </select>
             </div>
 
-            {caracteristicas.genero === 'ambos' && (
-              <>
                 <div className="prevencao__input-group">
-                  <label htmlFor="idadeHomem">Idade do Homem:</label>
+                  <label htmlFor="idade">Idade:</label>
                   <input
                     type="text"
-                    id="idadeHomem"
-                    name="idadeHomem"
+                    id="idade"
+                    name="idade"
                     pattern="[0-9]*"
-                    value={caracteristicas.idadeHomem}
+                    value={caracteristicas.idade}
                     onChange={handleChangeCaracteristicas}
                     required
                   />
                 </div>
-
-                <div className="prevencao__input-group">
-                  <label htmlFor="idadeMulher">Idade da Mulher:</label>
-                  <input
-                    type="text"
-                    id="idadeMulher"
-                    name="idadeMulher"
-                    pattern="[0-9]*"
-                    value={caracteristicas.idadeMulher}
-                    onChange={handleChangeCaracteristicas}
-                    required
-                  />
-                </div>
-              </>
-            )}
-
-            {caracteristicas.genero === 'homem' && (
-              <div className="prevencao__input-group">
-                <label htmlFor="idadeHomem">Idade do Homem:</label>
-                <input
-                  type="text"
-                  id="idadeHomem"
-                  name="idadeHomem"
-                  pattern="[0-9]*"
-                  value={caracteristicas.idadeHomem}
-                  onChange={handleChangeCaracteristicas}
-                  required
-                />
-              </div>
-            )}
-
-            {caracteristicas.genero === 'mulher' && (
-              <div className="prevencao__input-group">
-                <label htmlFor="idadeMulher">Idade da Mulher:</label>
-                <input
-                  type="text"
-                  id="idadeMulher"
-                  name="idadeMulher"
-                  pattern="[0-9]*"
-                  value={caracteristicas.idadeMulher}
-                  onChange={handleChangeCaracteristicas}
-                  required
-                />
-              </div>
-            )}
-
-            <button type="button" className="prevencao__avancar" onClick={handleAvancarClick}>
-              Avançar
-            </button>
-          </>
-        )}
-
-        {etapaAtual === 2 && (
-          <>
+        
             <h3 className="prevencao__subtitulo">Furto</h3>
 
             <div className="prevencao__input-group">
@@ -261,11 +191,11 @@ const handleSubmit = async (event) => {
             </div>
 
             <div className="prevencao__input-group">
-              <label htmlFor="quemIdentificou">Quem identificou?</label>
+              <label htmlFor="identificou">Quem identificou?</label>
               <select
-                id="quemIdentificou"
-                name="quemIdentificou"
-                value={furto.quemIdentificou}
+                id="identificou"
+                name="identificou"
+                value={furto.identificou}
                 onChange={handleChangeFurto}
                 required
               >
@@ -291,11 +221,11 @@ const handleSubmit = async (event) => {
             )}
 
             <div className="prevencao__input-group">
-              <label htmlFor="utilizouObjeto">Utilizou algum objeto para praticar o furto?</label>
+              <label htmlFor="utilizou">Utilizou algum objeto para praticar o furto?</label>
               <select
-                id="utilizouObjeto"
-                name="utilizouObjeto"
-                value={furto.utilizouObjeto}
+                id="utilizou"
+                name="utilizou"
+                value={furto.utilizou}
                 onChange={handleChangeFurto}
                 required
               >
@@ -322,44 +252,47 @@ const handleSubmit = async (event) => {
             )}
 
             <div className="prevencao__input-group">
-              <label htmlFor="produtoFurtado">Produto Furtado:</label>
+              <label htmlFor="produto">Produto Furtado:</label>
               <input
                 type="text"
-                id="produtoFurtado"
-                name="produtoFurtado"
-                value={furto.produtoFurtado}
+                id="produto"
+                name="produto"
+                value={furto.produto}
                 onChange={handleChangeFurto}
                 required
               />
             </div>
 
             <div className="prevencao__input-group">
-              <label htmlFor="valorRecuperado">Valor Recuperado:</label>
+              <label htmlFor="recuperado">Valor Recuperado:</label>
               <input
                 type="text"
-                id="valorRecuperado"
-                name="valorRecuperado"
+                id="recuperado"
+                name="recuperado"
                 pattern="[0-9]*([,.][0-9]+)?"
-                value={inibicao.valorRecuperado}
+                value={inibicao.recuperado}
                 onChange={handleChangeInibicao}
                 required
               />
             </div>
 
             <div className="prevencao__input-group">
-              <label htmlFor="resumoFurto">Resumo do Furto:</label>
+              <label htmlFor="resumo">Resumo do Furto:</label>
               <textarea
-                id="resumoFurto"
-                name="resumoFurto"
-                value={furto.resumoFurto}
+                id="resumo"
+                name="resumo"
+                value={furto.resumo}
                 onChange={handleChangeFurto}
                 required
               />
             </div>
-
-            <button type="submit" className="prevencao__submit">Enviar</button>
-          </>
-        )}
+        <button
+          type="submit"
+          className="prevencao__submit"
+          disabled={isLoading || isSending || isSubmitting}
+        >
+          {isSubmitting ? "Enviando..." : "Enviar"}
+        </button>
       </form>
     </div>
   );
