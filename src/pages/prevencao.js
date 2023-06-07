@@ -305,7 +305,6 @@ try {
                 type="text"
                 id="recuperado"
                 name="recuperado"
-                pattern="[0-9]*([,.][0-9]+)?"
                 value={recuperado}
                 onChange={handleChange}
                 required
@@ -319,7 +318,6 @@ try {
                 name="resumo"
                 value={resumo}
                 onChange={handleChange}
-                required
               />
             </div>
         <button
