@@ -128,8 +128,8 @@ try {
                 type="text"
                 id="nome"
                 name="nome"
+                onChange={handleChange}
                 value={nome}
-                required
               />
             </div>
 
@@ -140,6 +140,7 @@ try {
                 id="data"
                 name="data"
                 value={data}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -151,6 +152,7 @@ try {
                 id="hora"
                 name="hora"
                 value={hora}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -177,7 +179,7 @@ try {
                     name="idade"
                     pattern="[0-9]*"
                     value={idade}
-                    required
+                    onChange={handleChange}
                   />
                 </div>
         
@@ -189,6 +191,7 @@ try {
                 id="loja"
                 name="loja"
                 value={loja}
+                onChange={(event) => setLoja(event.target.value)}
                 required
               >
                 <option value="">Selecione uma loja</option>
@@ -207,6 +210,7 @@ try {
                 id="departamento"
                 name="departamento"
                 value={departamento}
+                onChange={(event) => setDepartamento(event.target.value)}
                 required
               >
                 <option value="">Selecione um departamento</option>
@@ -222,6 +226,7 @@ try {
                 id="identificou"
                 name="identificou"
                 value={identificou}
+                onChange={(event) => setIdentificou(event.target.value)}
                 required
               >
                 <option value="">Selecione</option>
@@ -239,6 +244,7 @@ try {
                   id="identificou"
                   name="identificou"
                   value={identificou}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -250,6 +256,7 @@ try {
                 id="utilizou"
                 name="utilizou"
                 value={utilizou}
+                onChange={(event) => setUtilizou(event.target.value)}
                 required
               >
                 <option value="">Selecione</option>
@@ -268,6 +275,7 @@ try {
                   id="utilizou"
                   name="utilizou"
                   value={utilizou}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -280,6 +288,7 @@ try {
                 id="produto"
                 name="produto"
                 value={produto}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -292,6 +301,7 @@ try {
                 name="recuperado"
                 pattern="[0-9]*([,.][0-9]+)?"
                 value={recuperado}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -302,6 +312,7 @@ try {
                 id="resumo"
                 name="resumo"
                 value={resumo}
+                onChange={handleChange}
                 required
               />
             </div>
