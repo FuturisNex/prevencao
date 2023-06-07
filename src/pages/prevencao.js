@@ -60,26 +60,39 @@ const Prevencao = () => {
     setEtapaAtual((prevEtapa) => prevEtapa + 1);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+const handleSubmit = async (event) => {
+  event.preventDefault();
 
-    const formData = {
-      ...caracteristicas,
-      ...furto,
-      ...inibicao,
-    };
+  if (isSubmitting) {
+    return;
+  }
 
-    // Envia os dados para a planilha do Google
-    axios
-      .post('https://script.google.com/macros/s/AKfycbzXLnbMafEKplUidQDS6lzeA_Jr_5yfgaJthlnktmlUQTHrP5L4eFAymS8daDT7y2HD/exec', formData)
-      .then((response) => {
-        console.log(response.data);
-        // Faça o que for necessário após enviar os dados com sucesso
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+  setIsSubmitting(true);
+  setErrorMessage("");
+  setSuccessMessage("");
+
+  try {
+    const formData = new FormData();
+    // ... adicione os dados do formulário ao formData
+
+    const response = await axios.post('https://script.google.com/macros/s/AKfycbyaF4yRbmVH-x6SOJz78Ui9O-ua-NuCq-J5SUgo5PofZopLXSvTAha8Ye8SfDQgK2kf/exec', formData, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    });
+
+    if (response.status === 200) {
+      // ... manipule a resposta de sucesso
+    } else {
+      throw new Error("Erro ao enviar formulário. Tente novamente mais tarde.");
+    }
+  } catch (error) {
+    console.error(error);
+    setErrorMessage(error.message);
+  } finally {
+    setIsSubmitting(false);
+  }
+};
   
   return (
     <div className="prevencao">
