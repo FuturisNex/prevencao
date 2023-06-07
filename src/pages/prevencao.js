@@ -69,19 +69,19 @@ const Prevencao = () => {
     };
 
     // Envia os dados para o Apps Script
-    fetch('https://script.google.com/macros/s/AKfycbzXLnbMafEKplUidQDS6lzeA_Jr_5yfgaJthlnktmlUQTHrP5L4eFAymS8daDT7y2HD/exec', {
-      method: 'POST',
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.text())
-      .then((data) => {
-        console.log(data); // Exibe a resposta do Apps Script
-        // Faça o que for necessário após enviar os dados com sucesso
-      })
-      .catch((error) => {
-        console.error(error); // Trate qualquer erro ocorrido
-      });
-  };
+fetch('https://script.google.com/macros/s/AKfycbzXLnbMafEKplUidQDS6lzeA_Jr_5yfgaJthlnktmlUQTHrP5L4eFAymS8daDT7y2HD/exec', {
+  method: 'POST',
+  mode: 'no-cors', // Adicione esta linha
+  body: JSON.stringify(formData),
+})
+.then((response) => response.text())
+.then((data) => {
+  console.log(data);
+  // Faça o que for necessário após enviar os dados com sucesso
+})
+.catch((error) => {
+  console.error(error);
+});
 
   return (
     <div className="prevencao">
