@@ -15,6 +15,7 @@ const Prevencao = () => {
   const [produto, setProduto] = useState("");
   const [recuperado, setRecuperado] = useState(false);
   const [resumo, setResumo] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
@@ -94,8 +95,7 @@ try {
                 type="text"
                 id="nome"
                 name="nome"
-                value={caracteristicas.nome}
-                onChange={handleChangeCaracteristicas}
+                value={nome}
                 required
               />
             </div>
@@ -106,8 +106,7 @@ try {
                 type="date"
                 id="data"
                 name="data"
-                value={caracteristicas.data}
-                onChange={handleChangeCaracteristicas}
+                value={data}
                 required
               />
             </div>
@@ -119,7 +118,6 @@ try {
                 id="hora"
                 name="hora"
                 value={hora}
-                onChange={handleChangeCaracteristicas}
                 required
               />
             </div>
@@ -130,13 +128,11 @@ try {
                 id="genero"
                 name="genero"
                 value={genero}
-                onChange={handleChangeCaracteristicas}
                 required
               >
                 <option value="">Selecione</option>
                 <option value="homem">Homem</option>
                 <option value="mulher">Mulher</option>
-                <option value="ambos">Ambos</option>
               </select>
             </div>
 
@@ -148,7 +144,6 @@ try {
                     name="idade"
                     pattern="[0-9]*"
                     value={idade}
-                    onChange={handleChangeCaracteristicas}
                     required
                   />
                 </div>
@@ -161,7 +156,6 @@ try {
                 id="filial"
                 name="filial"
                 value={filial}
-                onChange={handleChangeInibicao}
                 required
               >
                 <option value="">Selecione uma loja</option>
@@ -180,7 +174,6 @@ try {
                 id="departamento"
                 name="departamento"
                 value={departamento}
-                onChange={handleChangeInibicao}
                 required
               >
                 <option value="">Selecione um departamento</option>
@@ -196,7 +189,6 @@ try {
                 id="identificou"
                 name="identificou"
                 value={identificou}
-                onChange={handleChangeFurto}
                 required
               >
                 <option value="">Selecione</option>
@@ -214,7 +206,6 @@ try {
                   id="outroColaborador"
                   name="outroColaborador"
                   value={outroColaborador}
-                  onChange={handleChangeFurto}
                   required
                 />
               </div>
@@ -226,7 +217,6 @@ try {
                 id="utilizou"
                 name="utilizou"
                 value={utilizou}
-                onChange={handleChangeFurto}
                 required
               >
                 <option value="">Selecione</option>
@@ -245,7 +235,6 @@ try {
                   id="outroObjeto"
                   name="outroObjeto"
                   value={outroObjeto}
-                  onChange={handleChangeFurto}
                   required
                 />
               </div>
@@ -258,7 +247,6 @@ try {
                 id="produto"
                 name="produto"
                 value={produto}
-                onChange={handleChangeFurto}
                 required
               />
             </div>
@@ -271,7 +259,6 @@ try {
                 name="recuperado"
                 pattern="[0-9]*([,.][0-9]+)?"
                 value={recuperado}
-                onChange={handleChangeInibicao}
                 required
               />
             </div>
@@ -282,7 +269,6 @@ try {
                 id="resumo"
                 name="resumo"
                 value={resumo}
-                onChange={handleChangeFurto}
                 required
               />
             </div>
