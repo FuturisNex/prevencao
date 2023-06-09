@@ -14,6 +14,7 @@ const Prevencao = () => {
   const [identificou, setIdentificou] = useState("");
   const [outroColaborador, setOutroColaborador] = useState("");
   const [utilizou, setUtilizou] = useState("");
+  const [OutroObjeto, setOutroObjeto] = useState("");
   const [produto, setProduto] = useState("");
   const [recuperado, setRecuperado] = useState("");
   const [resumo, setResumo] = useState("");
@@ -46,6 +47,8 @@ const Prevencao = () => {
       setOutroColaborador(value);
     } else if (name === "utilizou") {
       setUtilizou(value);
+    } else if (name === "OutroObjeto") {
+      setOutroColaborador(value);
     } else if (name === "produto") {
       setProduto(value);
     } else if (name === "recuperado") {
@@ -77,6 +80,7 @@ try {
   formData.append("Departamento", departamento);
   formData.append("Identificou", identificou);
   formData.append("Outro Colaborador", identificou === "Outro" ? outroColaborador : "");
+  formData.append("Outro Objeto", identificou === "Outro" ? OutroObjeto : "");
   formData.append("Utilizou", utilizou);
   formData.append("Produto", produto);
   formData.append("Recuperado", recuperado);
@@ -242,11 +246,11 @@ try {
                 required
               >
                 <option value="">Selecione um departamento</option>
-                <option value="Comodes">Comodes</option>
-                <option value="Frios">Frios</option>
-                <option value="Hortifruti">Hortifruti</option>
-                <option value="Higiene">Higiene</option>
-                <option value="Perfumaria">Perfumaria</option>
+                <option value="COMMODITIES">Comodes</option>
+                <option value="FRIOS E LATICINIOS">Frios</option>
+                <option value="HIGIENE">Higiene</option>
+                <option value="PERFUMARIA">Perfumaria</option>
+                <option value="HORTIFRUTIGRANJEIROS">Hortifruti</option>
               </select>
             </div>
 
@@ -299,12 +303,12 @@ try {
 
             {utilizou === 'Outro' && (
               <div className="prevencao__input-group">
-                <label htmlFor="utilizou">Outro Objeto:</label>
+                <label htmlFor="OutroObjeto">Outro Objeto:</label>
                 <input
                   type="text"
-                  id="utilizou"
-                  name="utilizou"
-                  value={utilizou}
+                  id="OutroObjeto"
+                  name="OutroObjeto"
+                  value={OutroObjeto}
                   onChange={handleChange}
                   required
                 />
