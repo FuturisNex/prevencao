@@ -76,7 +76,7 @@ try {
   formData.append("Loja", loja);
   formData.append("Departamento", departamento);
   formData.append("Identificou", identificou);
-  formData.append("Outro Colaborador", identificou === "Outro" ? outroColaboradorValue : "");
+  formData.append("Outro Colaborador", identificou === "Outro" ? outroColaborador : "");
   formData.append("Utilizou", utilizou);
   formData.append("Produto", produto);
   formData.append("Recuperado", recuperado);
@@ -122,6 +122,11 @@ try {
     const formatDate = (date) => {
     const [year, month, day] = date.split("-");
     return `${day}/${month}/${year}`;
+  };
+ 
+  const handleCloseSuccessMessage = () => {
+    setIsSubmitted(false);
+    setSuccessMessage("");
   };
   
     const handleOpenExcelLink = () => {
