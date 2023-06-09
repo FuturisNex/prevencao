@@ -357,7 +357,7 @@ try {
         </button>
         <button
           type="button"
-          className="form__ver"
+          className="prevencao__avancar"
           onClick={handleOpenExcelLink}
         >
           Lista
