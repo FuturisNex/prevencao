@@ -48,7 +48,7 @@ const Prevencao = () => {
     } else if (name === "utilizou") {
       setUtilizou(value);
     } else if (name === "OutroObjeto") {
-      setOutroColaborador(value);
+      setOutroObjeto(value);
     } else if (name === "produto") {
       setProduto(value);
     } else if (name === "recuperado") {
