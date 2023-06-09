@@ -297,7 +297,7 @@ try {
                 <option value="Mochila">Mochila</option>
                 <option value="Sacola">Sacola</option>
                 <option value="Roupa">Roupa</option>
-                <option value="Outro">Outro</option>
+                <option value="Outros">Outro</option>
               </select>
             </div>
 
