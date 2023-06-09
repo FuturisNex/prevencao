@@ -119,6 +119,7 @@
 }
 
 .prevencao__submit {
+    margin: 17px auto;
     display: block;
     width: 80%;
     padding: 12px;
@@ -138,7 +139,7 @@
 }
 
 .prevencao__avancar {
-    margin-top: 17px;
+    margin: 17px auto;
     display: block;
     width: 80%;
     padding: 12px;
