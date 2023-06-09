@@ -198,8 +198,8 @@ try {
                 required
               >
                 <option value="">Selecione</option>
-                <option value="homem">Homem</option>
-                <option value="mulher">Mulher</option>
+                <option value="HOMEM">HOMEM</option>
+                <option value="MULHER">MULHER</option>
               </select>
             </div>
 
@@ -246,11 +246,11 @@ try {
                 required
               >
                 <option value="">Selecione um departamento</option>
-                <option value="COMMODITIES">Comodes</option>
-                <option value="FRIOS E LATICINIOS">Frios</option>
-                <option value="HIGIENE">Higiene</option>
-                <option value="PERFUMARIA">Perfumaria</option>
-                <option value="HORTIFRUTIGRANJEIROS">Hortifruti</option>
+                <option value="COMMODITIES">COMMODITIES</option>
+                <option value="FRIOS E LATICINIOS">FRIOS E LATICINIOS</option>
+                <option value="HIGIENE">HIGIENE</option>
+                <option value="PERFUMARIA">PERFUMARIA</option>
+                <option value="HORTIFRUTIGRANJEIROS">HORTIFRUTIGRANJEIROS</option>
               </select>
             </div>
 
@@ -265,7 +265,7 @@ try {
               >
                 <option value="">Selecione</option>
                 <option value="CFTV">CFTV</option>
-                <option value="Prevenção de Piso">Prevenção de Piso</option>
+                <option value="PREVENÇÃO DE PISO">PREVENÇÃO DE PISO</option>
                 <option value="Outro">Outro Colaborador</option>
               </select>
             </div>
@@ -294,9 +294,9 @@ try {
                 required
               >
                 <option value="">Selecione</option>
-                <option value="Mochila">Mochila</option>
-                <option value="Sacola">Sacola</option>
-                <option value="Roupa">Roupa</option>
+                <option value="MOCHILA">Mochila</option>
+                <option value="SACOLA">Sacola</option>
+                <option value="ROUPA">Roupa</option>
                 <option value="Outro">Outro</option>
               </select>
             </div>
