@@ -25,43 +25,38 @@ const Prevencao = () => {
   const [isSending, setIsSending] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-const handleChange = (event) => {
-  const { name, value } = event.target;
-  if (name === "nome") {
-    setNome(value);
-  } else if (name === "data") {
-    setData(value);
-  } else if (name === "hora") {
-    setHora(value);
-  } else if (name === "genero") {
-    setGenero(value);
-  } else if (name === "idade") {
-    setIdade(value);
-  } else if (name === "loja") {
-    setLoja(value);
-  } else if (name === "departamento") {
-    setDepartamento(value);
-  } else if (name === "identificou") {
-    setIdentificou(value);
-    if (value === "Outro") {
-      setMostrarOutroColaborador(true);
-    } else {
-      setMostrarOutroColaborador(false);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    if (name === "nome") {
+      setNome(value);
+    } else if (name === "data") {
+      setData(value);
+    } else if (name === "hora") {
+      setHora(value);
+    } else if (name === "genero") {
+      setGenero(value);
+    } else if (name === "idade") {
+      setIdade(value);
+    } else if (name === "loja") {
+      setLoja(value);
+    } else if (name === "departamento") {
+      setDepartamento(value);
+    } else if (name === "identificou") {
+      setIdentificou(value);
+    } else if (name === "outroColaborador") {
+      setOutroColaborador(value);
+    } else if (name === "utilizou") {
+      setUtilizou(value);
+    } else if (name === "OutroObjeto") {
+      setOutroColaborador(value);
+    } else if (name === "produto") {
+      setProduto(value);
+    } else if (name === "recuperado") {
+      setRecuperado(value);
+    } else if (name === "resumo") {
+      setResumo(value);
     }
-  } else if (name === "outroColaborador") {
-    setOutroColaborador(value);
-  } else if (name === "utilizou") {
-    setUtilizou(value);
-  } else if (name === "OutroObjeto") {
-    setOutroObjeto(value);
-  } else if (name === "produto") {
-    setProduto(value);
-  } else if (name === "recuperado") {
-    setRecuperado(value);
-  } else if (name === "resumo") {
-    setResumo(value);
-  }
-};
+  };  
   
 const handleSubmit = async (event) => {
 event.preventDefault();
@@ -85,7 +80,7 @@ try {
   formData.append("Departamento", departamento);
   formData.append("Identificou", identificou);
   formData.append("Outro Colaborador", identificou === "Outro" ? outroColaborador : "");
-  formData.append("Outro Objeto", identificou === "Outros" ? OutroObjeto : "");
+  formData.append("Outro Objeto", utilizou === "Outros" ? OutroObjeto : "");
   formData.append("Utilizou", utilizou);
   formData.append("Produto", produto);
   formData.append("Recuperado", recuperado);
@@ -275,18 +270,19 @@ try {
               </select>
             </div>
 
-{mostrarOutroColaborador && (
-  <div>
-    <label htmlFor="outroColaborador">Outro Colaborador:</label>
-    <input
-      type="text"
-      id="outroColaborador"
-      name="outroColaborador"
-      value={outroColaborador}
-      onChange={handleChange}
-    />
-  </div>
-)}
+            {identificou === 'Outro' && (
+              <div className="prevencao__input-group">
+                <label htmlFor="outroColaborador">Outro Colaborador:</label>
+                <input
+                  type="text"
+                  id="outroColaborador"
+                  name="outroColaborador"
+                  value={outroColaborador}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            )}
 
             <div className="prevencao__input-group">
               <label htmlFor="utilizou">Utilizou algum objeto para praticar o furto?</label>
@@ -305,7 +301,7 @@ try {
               </select>
             </div>
 
-            {OutroObjeto === 'Outros' && (
+            {utilizou === 'Outros' && (
               <div className="prevencao__input-group">
                 <label htmlFor="OutroObjeto">Outro Objeto:</label>
                 <input
