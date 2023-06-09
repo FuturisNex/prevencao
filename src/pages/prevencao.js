@@ -80,7 +80,7 @@ try {
   formData.append("Departamento", departamento);
   formData.append("Identificou", identificou);
   formData.append("Outro Colaborador", identificou === "Outro" ? outroColaborador : "");
-  formData.append("Outro Objeto", identificou === "Outro" ? OutroObjeto : "");
+  formData.append("Outro Objeto", identificou === "Outros" ? OutroObjeto : "");
   formData.append("Utilizou", utilizou);
   formData.append("Produto", produto);
   formData.append("Recuperado", recuperado);
@@ -198,8 +198,8 @@ try {
                 required
               >
                 <option value="">Selecione</option>
-                <option value="HOMEM">HOMEM</option>
-                <option value="MULHER">MULHER</option>
+                <option value="Homem">Homem</option>
+                <option value="Mulher">Mulher</option>
               </select>
             </div>
 
@@ -246,11 +246,11 @@ try {
                 required
               >
                 <option value="">Selecione um departamento</option>
-                <option value="COMMODITIES">COMMODITIES</option>
-                <option value="FRIOS E LATICINIOS">FRIOS E LATICINIOS</option>
-                <option value="HIGIENE">HIGIENE</option>
-                <option value="PERFUMARIA">PERFUMARIA</option>
-                <option value="HORTIFRUTIGRANJEIROS">HORTIFRUTIGRANJEIROS</option>
+                <option value="Commodities">Commodities</option>
+                <option value="Frios e Laticinios">Frios e Laticinios</option>
+                <option value="Higiene">Higiene</option>
+                <option value="Perfumaria">Perfumaria</option>
+                <option value="Hortifruti">Hortifruti</option>
               </select>
             </div>
 
@@ -265,7 +265,7 @@ try {
               >
                 <option value="">Selecione</option>
                 <option value="CFTV">CFTV</option>
-                <option value="PREVENÇÃO DE PISO">PREVENÇÃO DE PISO</option>
+                <option value="Prevenção de Piso">Prevenção de Piso</option>
                 <option value="Outro">Outro Colaborador</option>
               </select>
             </div>
@@ -294,14 +294,14 @@ try {
                 required
               >
                 <option value="">Selecione</option>
-                <option value="MOCHILA">Mochila</option>
-                <option value="SACOLA">Sacola</option>
-                <option value="ROUPA">Roupa</option>
+                <option value="Mochila">Mochila</option>
+                <option value="Sacola">Sacola</option>
+                <option value="Roupa">Roupa</option>
                 <option value="Outro">Outro</option>
               </select>
             </div>
 
-            {utilizou === 'Outro' && (
+            {utilizou === 'Outros' && (
               <div className="prevencao__input-group">
                 <label htmlFor="OutroObjeto">Outro Objeto:</label>
                 <input
