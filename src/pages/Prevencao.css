@@ -10,7 +10,7 @@
 }
 
 .form__ver {
-    width: 100%;
+    width: 80%;
     padding: 0.5rem;
     background-color: #3fc71d;
     color: #fff;
@@ -120,7 +120,7 @@
 
 .prevencao__submit {
     display: block;
-    width: 100%;
+    width: 80%;
     padding: 12px;
     background-color: #4caf50;
     /* Cor verde */
@@ -140,7 +140,7 @@
 .prevencao__avancar {
     margin-top: 17px;
     display: block;
-    width: 100%;
+    width: 80%;
     padding: 12px;
     background-color: #2196f3;
     color: #fff;
