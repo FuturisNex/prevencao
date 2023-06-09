@@ -12,6 +12,7 @@ const Prevencao = () => {
   const [loja, setLoja] = useState("");
   const [departamento, setDepartamento] = useState("");
   const [identificou, setIdentificou] = useState("");
+  const [outroColaborador, setOutroColaborador] = useState("");
   const [utilizou, setUtilizou] = useState("");
   const [produto, setProduto] = useState("");
   const [recuperado, setRecuperado] = useState("");
@@ -41,6 +42,8 @@ const Prevencao = () => {
       setDepartamento(value);
     } else if (name === "identificou") {
       setIdentificou(value);
+    } else if (name === "outroColaborador") {
+      setOutroColaborador(value);
     } else if (name === "utilizou") {
       setUtilizou(value);
     } else if (name === "produto") {
@@ -73,6 +76,7 @@ try {
   formData.append("Loja", loja);
   formData.append("Departamento", departamento);
   formData.append("Identificou", identificou);
+  formData.append("Outro Colaborador", identificou === "Outro" ? outroColaboradorValue : "");
   formData.append("Utilizou", utilizou);
   formData.append("Produto", produto);
   formData.append("Recuperado", recuperado);
@@ -120,8 +124,21 @@ try {
     return `${day}/${month}/${year}`;
   };
   
+    const handleOpenExcelLink = () => {
+    window.open(
+      "https://docs.google.com/spreadsheets/d/18mM2pToUkB7qZBAFzc4T658midBbTaDOxTumtGmU3a0/edit?usp=sharing",
+      "_blank"
+    );
+  };
+  
   return (
     <div className="prevencao">
+      {isSubmitted && successMessage && (
+        <div className="successMessage">
+          <span>{successMessage}</span>
+          <button onClick={handleCloseSuccessMessage}>OK</button>
+        </div>
+      )}    
       <img src={logo} alt="Logo" className="logo-form" />
       <h2 className="prevencao__titulo">Formulário de Prevenção</h2>
       <form className="prevencao__form" onSubmit={handleSubmit}>
@@ -246,12 +263,12 @@ try {
 
             {identificou === 'Outro' && (
               <div className="prevencao__input-group">
-                <label htmlFor="identificou">Outro Colaborador:</label>
+                <label htmlFor="outroColaborador">Outro Colaborador:</label>
                 <input
                   type="text"
-                  id="identificou"
-                  name="identificou"
-                  value={identificou}
+                  id="outroColaborador"
+                  name="outroColaborador"
+                  value={outroColaborador}
                   onChange={handleChange}
                   required
                 />
@@ -328,6 +345,13 @@ try {
           disabled={isLoading || isSending || isSubmitting}
         >
           {isSubmitting ? "Enviando..." : "Enviar"}
+        </button>
+        <button
+          type="button"
+          className="form__ver"
+          onClick={handleOpenExcelLink}
+        >
+          Lista
         </button>
       </form>
     </div>
