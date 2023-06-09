@@ -270,7 +270,7 @@ try {
               </select>
             </div>
 
-            {identificou === 'Outro' && (
+            {outroColaborador === 'Outro' && (
               <div className="prevencao__input-group">
                 <label htmlFor="outroColaborador">Outro Colaborador:</label>
                 <input
@@ -301,7 +301,7 @@ try {
               </select>
             </div>
 
-            {utilizou === 'Outros' && (
+            {OutroObjeto === 'Outros' && (
               <div className="prevencao__input-group">
                 <label htmlFor="OutroObjeto">Outro Objeto:</label>
                 <input
