@@ -80,11 +80,11 @@ const handleSubmit = async (event) => {
     formData.append("Departamento", departamento);
     formData.append("Identificou", identificou);
     if (identificou === "Outro") {
-      formData.append("Outro Colaborador", outroColaborador);
+      formData.append(identificou, outroColaborador);
     }
     formData.append("Utilizou", utilizou);
     if (utilizou === "Outros") {
-      formData.append("Outro Objeto", OutroObjeto);
+      formData.append(utilizou, OutroObjeto);
     }
     formData.append("Produto", produto);
     formData.append("Recuperado", recuperado);
@@ -253,6 +253,7 @@ const handleSubmit = async (event) => {
                 <option value="Higiene">Higiene</option>
                 <option value="Perfumaria">Perfumaria</option>
                 <option value="Hortifruti">Hortifruti</option>
+                <option value="Doces">Doces</option>
               </select>
             </div>
 
