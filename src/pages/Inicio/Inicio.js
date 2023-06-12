@@ -7,16 +7,16 @@ function TelaInicial() {
       <h1>Prevenção de Perdas</h1>
       <div className="botoes">
         <Link to="/furto" className="botao">
-          Furto
+          Furtos
         </Link>
         <Link to="/ocorrencia" className="botao">
-          Ocorrência
+          Ocorrências
         </Link>
         <Link to="/contagens" className="botao">
           Contagens
         </Link>
         <Link to="/descarte" className="botao">
-          Descarte
+          Descartes
         </Link>
       </div>
     </div>
