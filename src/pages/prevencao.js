@@ -59,54 +59,56 @@ const Prevencao = () => {
   };  
   
 const handleSubmit = async (event) => {
-event.preventDefault();
-  
-if (isSubmitting) {
-  return;
-}
+  event.preventDefault();
 
-setIsSubmitting(true);
-setErrorMessage("");
-setSuccessMessage("");
-
-try {
-  const formData = new FormData();
-  formData.append("Nome", nome);
-  formData.append("Data", formatDate(data));
-  formData.append("Hora", hora);
-  formData.append("Genero", genero);
-  formData.append("Idade", idade);
-  formData.append("Loja", loja);
-  formData.append("Departamento", departamento);
-  formData.append("Identificou", identificou);
-  formData.append("Outro Colaborador", identificou === "Outro" ? outroColaborador : "");
-  formData.append("Outro Objeto", utilizou === "Outros" ? OutroObjeto : "");
-  formData.append("Utilizou", utilizou);
-  formData.append("Produto", produto);
-  formData.append("Recuperado", recuperado);
-  formData.append("Resumo", resumo);
-
-  const response = await axios.post(
-    "https://script.google.com/macros/s/AKfycbwN-86reWdbhE0_ZW8zK-vA7lU2eLr5L1OIRRT7xGe_DcPx0Hkt9SybVCx-lO4kisgPcA/exec",
-    formData
-  );
-
-  if (response.status === 200) {
-    setSuccessMessage(response.data);
-    resetForm();
-    setIsSubmitted(true);
-  } else {
-    throw new Error(
-      "Erro ao enviar formulário. Tente novamente mais tarde."
-    );
+  if (isSubmitting) {
+    return;
   }
-} catch (error) {
-  console.error(error);
-  setErrorMessage(error.message);
-} finally {
-  setIsSubmitting(false);
-}
-  };
+
+  setIsSubmitting(true);
+  setErrorMessage("");
+  setSuccessMessage("");
+
+  try {
+    const formData = new FormData();
+    formData.append("Nome", nome);
+    formData.append("Data", formatDate(data));
+    formData.append("Hora", hora);
+    formData.append("Genero", genero);
+    formData.append("Idade", idade);
+    formData.append("Loja", loja);
+    formData.append("Departamento", departamento);
+    formData.append("Identificou", identificou);
+    if (identificou === "Outro") {
+      formData.append("Outro Colaborador", outroColaborador);
+    }
+    formData.append("Utilizou", utilizou);
+    if (utilizou === "Outros") {
+      formData.append("Outro Objeto", OutroObjeto);
+    }
+    formData.append("Produto", produto);
+    formData.append("Recuperado", recuperado);
+    formData.append("Resumo", resumo);
+
+    const response = await axios.post(
+      "https://script.google.com/macros/s/AKfycbwN-86reWdbhE0_ZW8zK-vA7lU2eLr5L1OIRRT7xGe_DcPx0Hkt9SybVCx-lO4kisgPcA/exec",
+      formData
+    );
+
+    if (response.status === 200) {
+      setSuccessMessage(response.data);
+      resetForm();
+      setIsSubmitted(true);
+    } else {
+      throw new Error("Erro ao enviar formulário. Tente novamente mais tarde.");
+    }
+  } catch (error) {
+    console.error(error);
+    setErrorMessage(error.message);
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const resetForm = () => {
     setNome("");
