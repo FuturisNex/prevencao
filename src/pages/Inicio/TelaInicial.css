@@ -1,3 +1,14 @@
+.logo-form {
+  background-size: cover;
+  width: 100%;
+  max-width: 12em;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+
 .tela-inicial {
   display: flex;
   justify-content: center;
