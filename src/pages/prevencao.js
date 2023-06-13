@@ -127,6 +127,18 @@ const Prevencao = () => {
     }
   }, [isSubmitted]);
   
+    const handleCloseSuccessMessage = () => {
+    setIsSubmitted(false);
+    setSuccessMessage("");
+  };
+  
+    const handleOpenExcelLink = () => {
+    window.open(
+      "https://docs.google.com/spreadsheets/d/18mM2pToUkB7qZBAFzc4T658midBbTaDOxTumtGmU3a0/edit?usp=sharing",
+      "_blank"
+    );
+  };
+  
   return (
     <div className="prevencao">
       {isSubmitted && successMessage && (
