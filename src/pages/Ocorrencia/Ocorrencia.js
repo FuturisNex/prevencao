@@ -143,7 +143,7 @@ const handleChange = (event) => {
       <img src={logo} alt="Logo" className="logo-form" />
       <h2 className="prevencao__titulo">Formulário de Prevenção</h2>
       <form className="prevencao__form" onSubmit={handleSubmit}>
-            <h3 className="prevencao__subtitulo">Furto</h3>
+            <h3 className="prevencao__subtitulo">Ocorrência</h3>
 
             <div className="prevencao__input-group">
               <label htmlFor="nome">Nome:</label>
