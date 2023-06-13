@@ -47,18 +47,18 @@ const handleChange = (event) => {
     setIdentificou(value);
   } else if (name === "outroColaborador") {
     setOutroColaborador(value);
-    setOutroColaboradorText(value);
-  } else if (name === "utilizou") {
-    setUtilizou(value);
   } else if (name === "outroObjeto") {
     setOutroObjeto(value);
-    setOutroObjetoText(value);
   } else if (name === "produto") {
     setProduto(value);
   } else if (name === "recuperado") {
     setRecuperado(value);
   } else if (name === "resumo") {
     setResumo(value);
+  } else if (name === "outroColaboradorText") {
+    setOutroColaboradorText(value);
+  } else if (name === "outroObjetoText") {
+    setOutroObjetoText(value);
   }
 };
 
@@ -83,9 +83,9 @@ const handleChange = (event) => {
       formData.append("Loja", loja);
       formData.append("Departamento", departamento);
       formData.append("Identificou", identificou);
-      formData.append("OutroColaborador", outroColaborador);
+      formData.append("OutroColaborador", outroColaborador === "outroColaborador" ? outroColaboradorText : "");
       formData.append("Utilizou", utilizou);
-      formData.append("OutroObjeto", outroObjeto);
+      formData.append("OutroObjeto", utilizou === "outroObjeto" ? outroObjetoText : "");
       formData.append("Produto", produto);
       formData.append("Recuperado", recuperado);
       formData.append("Resumo", resumo);
