@@ -259,7 +259,7 @@ const handleChange = (event) => {
                 onChange={(event) => setIdade(event.target.value)}
                 required
               >
-                <option value="">Selecione a Idade</option>
+                <option value="">Selecione</option>
                 <option value="10 a 15 Anos">10 a 15 Anos</option>
                 <option value="15 a 18 Anos">15 a 18 Anos</option>
                 <option value="18 a 20 Anos">18 a 20 Anos</option>
@@ -279,7 +279,7 @@ const handleChange = (event) => {
                 onChange={(event) => setLoja(event.target.value)}
                 required
               >
-                <option value="">Selecione a Loja</option>
+                <option value="">Selecione</option>
                 <option value="1">Santa Mônica</option>
                 <option value="11">Tomé de Souza</option>
                 <option value="2">Castro Alves</option>
@@ -298,7 +298,7 @@ const handleChange = (event) => {
                 onChange={(event) => setDepartamento(event.target.value)}
                 required
               >
-                <option value="">Selecione o Departamento</option>
+                <option value="">Selecione</option>
                 <option value="Commodities">Commodities</option>
                 <option value="Frios e Laticinios">Frios e Laticinios</option>
                 <option value="Higiene">Higiene</option>
