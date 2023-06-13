@@ -170,7 +170,7 @@ const handleChange = (event) => {
             </div>
 
             <div className="prevencao__input-group">
-              <label htmlFor="produto">Produto Furtado:</label>
+              <label htmlFor="produto">Produto Do Descarte:</label>
               <input
                 type="text"
                 id="produto"
