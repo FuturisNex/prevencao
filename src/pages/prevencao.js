@@ -7,6 +7,7 @@ const Prevencao = () => {
   const [nome, setNome] = useState("");
   const [data, setData] = useState("");
   const [hora, setHora] = useState("");
+  const [tipo, setTipo] = useState("");
   const [genero, setGenero] = useState("");
   const [idade, setIdade] = useState("");
   const [loja, setLoja] = useState("");
@@ -35,6 +36,8 @@ const handleChange = (event) => {
     setData(value);
   } else if (name === "hora") {
     setHora(value);
+  } else if (name === "tipo") {
+    setTipo(value);
   } else if (name === "genero") {
     setGenero(value);
   } else if (name === "idade") {
@@ -81,6 +84,7 @@ const handleChange = (event) => {
       formData.append("Nome", nome);
       formData.append("Data", data);
       formData.append("Hora", hora);
+      formData.append("Tipo", tipo);
       formData.append("Genero", genero);
       formData.append("Idade", idade);
       formData.append("Loja", loja);
@@ -117,6 +121,7 @@ const handleChange = (event) => {
         setNome("");
         setData("");
         setHora("");
+        setTipo("");
         setGenero("");
         setIdade("");
         setLoja("");
@@ -155,6 +160,7 @@ const handleChange = (event) => {
     setNome("");
     setData("");
     setHora("");
+    setTipo("");
     setGenero("");
     setIdade("");
     setLoja("");
@@ -177,7 +183,7 @@ const handleChange = (event) => {
       <img src={logo} alt="Logo" className="logo-form" />
       <h2 className="prevencao__titulo">Formulário de Prevenção</h2>
       <form className="prevencao__form" onSubmit={handleSubmit}>
-            <h3 className="prevencao__subtitulo">Furto</h3>
+            <h3 className="prevencao__subtitulo">Furto | Degustação</h3>
 
             <div className="prevencao__input-group">
               <label htmlFor="nome">Nome:</label>
@@ -212,6 +218,21 @@ const handleChange = (event) => {
                 onChange={handleChange}
                 required
               />
+            </div>
+
+            <div className="prevencao__input-group">
+              <label htmlFor="tipo">Furto ou Degustação?</label>
+              <select
+                id="tipo"
+                name="tipo"
+                value={tipo}
+                onChange={(event) => setTipo(event.target.value)}
+                required
+              >
+                <option value="">Selecione</option>
+                <option value="Furto">Furto</option>
+                <option value="Degustação">Degustação</option>
+              </select>
             </div>
 
             <div className="prevencao__input-group">
@@ -258,7 +279,7 @@ const handleChange = (event) => {
                 onChange={(event) => setLoja(event.target.value)}
                 required
               >
-                <option value="">Selecione uma loja</option>
+                <option value="">Selecione a Loja</option>
                 <option value="1">Santa Mônica</option>
                 <option value="11">Tomé de Souza</option>
                 <option value="2">Castro Alves</option>
@@ -277,7 +298,7 @@ const handleChange = (event) => {
                 onChange={(event) => setDepartamento(event.target.value)}
                 required
               >
-                <option value="">Selecione um departamento</option>
+                <option value="">Selecione o Departamento</option>
                 <option value="Commodities">Commodities</option>
                 <option value="Frios e Laticinios">Frios e Laticinios</option>
                 <option value="Higiene">Higiene</option>
