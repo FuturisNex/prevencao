@@ -1,59 +1,72 @@
-.logo-form {
-  background-size: cover;
-  width: 100%;
-  max-width: 12em;
-  height: auto;
-  margin: 0 auto;
-  margin-bottom: 40px;
-  display: flex;
-  justify-content: center;
-}
-
 .tela-inicial {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  background-color: #f7f7f7;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  max-width: 400px;
+  width: 100%;
+}
+
+.logo-form {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.titulo {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .botoes {
   display: flex;
-  width: 80%;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 20px;
 }
 
 .botao {
   display: inline-block;
-  margin: 10px;
-  width: 80%;
+  width: 100%;
   padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
-  text-decoration: none;
+  margin: 10px;
   font-size: 18px;
-  text-align: center; /* Centraliza o texto */
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .botao:hover {
   background-color: #0056b3;
 }
 
-.container-quadrado {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 300px; /* Ajuste o tamanho do quadrado conforme necessário */
-  height: 300px; /* Ajuste o tamanho do quadrado conforme necessário */
-  border: 2px solid #007bff;
-  border-radius: 10px;
+/* Responsividade para dispositivos móveis */
+@media (max-width: 600px) {
+  .container {
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .botoes {
+    flex-direction: column;
+  }
+
+  .botao {
+    width: 100%;
+    margin: 5px 0;
+  }
 }
