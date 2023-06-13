@@ -251,6 +251,7 @@ const handleChange = (event) => {
                 name="resumo"
                 value={resumo}
                 onChange={handleChange}
+                required
               />
             </div>
         <button
