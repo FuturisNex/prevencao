@@ -263,10 +263,9 @@ const handleChange = (event) => {
                 required
               >
                 <option value="">Selecione</option>
-                <option value="Cliente">Cliente</option>
-                <option value="Colaborador">Colaborador</option>
-                <option value="Cliente e Colaborador">Cliente e Colaborador</option>
-                <option value="Cliente">Cliente</option>
+                <option value="Com Cliente">Cliente</option>
+                <option value="Com Colaborador">Colaborador</option>
+                <option value="Com Cliente e Colaborador">Cliente e Colaborador</option>
               </select>
             </div>
 
