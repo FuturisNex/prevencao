@@ -330,7 +330,7 @@ const handleChange = (event) => {
                 <option value="Sacola">Sacola</option>
                 <option value="Roupa">Roupa</option>
                 <option value="Caixa de Papelão">Caixa de Papelão</option>
-                <option value="Nenhum objeto específico foi utilizado">Nenhum objeto específico foi utilizado</option>
+                <option value="Nenhum objeto foi utilizado">Nenhum objeto específico foi utilizado</option>
               </select>
             </div>
 
