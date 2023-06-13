@@ -24,6 +24,8 @@ const Prevencao = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [outroColaboradorText, setOutroColaboradorText] = useState("");
+  const [outroObjetoText, setOutroObjetoText] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -45,10 +47,12 @@ const Prevencao = () => {
       setIdentificou(value);
     } else if (name === "outroColaborador") {
       setOutroColaborador(value);
+      setOutroColaboradorText(value);
     } else if (name === "utilizou") {
       setUtilizou(value);
     } else if (name === "outroObjeto") {
       setOutroObjeto(value);
+      setOutroObjetoText(value);
     } else if (name === "produto") {
       setProduto(value);
     } else if (name === "recuperado") {
@@ -270,19 +274,19 @@ const Prevencao = () => {
               </select>
             </div>
 
-            {data.Identificou === 'outroColaborador' && (
-              <div className="prevencao__input-group">
-                <label htmlFor="outroColaborador">Outro Colaborador:</label>
-                <input
-                  type="text"
-                  id="outroColaborador"
-                  name="outroColaborador"
-                  value={outroColaborador}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-            )}
+{identificou === 'outroColaborador' && (
+  <div className="prevencao__input-group">
+    <label htmlFor="outroColaborador">Outro Colaborador:</label>
+    <input
+      type="text"
+      id="outroColaborador"
+      name="outroColaborador"
+      value={outroColaboradorText}
+      onChange={(event) => setOutroColaboradorText(event.target.value)}
+      required
+    />
+  </div>
+)}
 
             <div className="prevencao__input-group">
               <label htmlFor="utilizou">Utilizou algum objeto para praticar o furto?</label>
@@ -301,19 +305,19 @@ const Prevencao = () => {
               </select>
             </div>
 
-            {data.Utilizou === 'outroObjeto' && (
-              <div className="prevencao__input-group">
-                <label htmlFor="outroObjeto">Outro Objeto:</label>
-                <input
-                  type="text"
-                  id="outroObjeto"
-                  name="outroObjeto"
-                  value={outroObjeto}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-            )}
+{utilizou === 'outroObjeto' && (
+  <div className="prevencao__input-group">
+    <label htmlFor="outroObjeto">Outro Objeto:</label>
+    <input
+      type="text"
+      id="outroObjeto"
+      name="outroObjeto"
+      value={outroObjetoText}
+      onChange={(event) => setOutroObjetoText(event.target.value)}
+      required
+    />
+  </div>
+)}
 
             <div className="prevencao__input-group">
               <label htmlFor="produto">Produto Furtado:</label>
