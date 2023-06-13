@@ -270,7 +270,7 @@ const Prevencao = () => {
               </select>
             </div>
 
-            {identificou === 'outroColaborador' && (
+            {data.Identificou === 'outroColaborador' && (
               <div className="prevencao__input-group">
                 <label htmlFor="outroColaborador">Outro Colaborador:</label>
                 <input
@@ -301,7 +301,7 @@ const Prevencao = () => {
               </select>
             </div>
 
-            {utilizou === 'outroObjeto' && (
+            {data.Utilizou === 'outroObjeto' && (
               <div className="prevencao__input-group">
                 <label htmlFor="outroObjeto">Outro Objeto:</label>
                 <input
