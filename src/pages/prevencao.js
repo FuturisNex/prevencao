@@ -221,17 +221,26 @@ const handleChange = (event) => {
               </select>
             </div>
 
-                <div className="prevencao__input-group">
-                  <label htmlFor="idade">Idade:</label>
-                  <input
-                    type="text"
-                    id="idade"
-                    name="idade"
-                    pattern="[0-9]*"
-                    value={idade}
-                    onChange={handleChange}
-                  />
-                </div>
+            <div className="prevencao__input-group">
+              <label htmlFor="idade">Idade Aproximada:</label>
+              <select
+                id="idade"
+                name="idade"
+                value={idade}
+                onChange={(event) => setIdade(event.target.value)}
+                required
+              >
+                <option value="">Selecione uma loja</option>
+                <option value="10 a 15 Anos">10 a 15 Anos</option>
+                <option value="16 a 18 Anos">16 a 18 Anos</option>
+                <option value="18 a 20 Anos">18 a 20 Anos</option>
+                <option value="20 a 25 Anos">20 a 25 Anos</option>
+                <option value="25 a 30 Anos">25 a 30 Anos</option>
+                <option value="30 a 40 Anos">30 a 40 Anos</option>
+                <option value="Maior que 40 Anos">Maior que 40 Anos</option>
+                <option value="Maior que 50 Anos">Maior que 50 Anos</option>
+              </select>
+            </div>
         
             <h3 className="prevencao__subtitulo">Furto</h3>
 
