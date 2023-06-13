@@ -198,7 +198,7 @@ const handleChange = (event) => {
                 onChange={(event) => setIdade(event.target.value)}
                 required
               >
-                <option value="">Selecione a Idade</option>
+                <option value="">Selecione</option>
                 <option value="De 10 a 15 Anos">De 10 a 15 Anos</option>
                 <option value="De 15 a 18 Anos">De 15 a 18 Anos</option>
                 <option value="De 18 a 20 Anos">De 18 a 20 Anos</option>
@@ -218,7 +218,7 @@ const handleChange = (event) => {
                 onChange={(event) => setLoja(event.target.value)}
                 required
               >
-                <option value="">Selecione uma loja</option>
+                <option value="">Selecione</option>
                 <option value="1">Santa Mônica</option>
                 <option value="11">Tomé de Souza</option>
                 <option value="2">Castro Alves</option>
