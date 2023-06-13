@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Prevencao.css';
 import logo from "./grupo.png";
 import axios from "axios";
@@ -14,7 +14,7 @@ const Prevencao = () => {
   const [identificou, setIdentificou] = useState("");
   const [outroColaborador, setOutroColaborador] = useState("");
   const [utilizou, setUtilizou] = useState("");
-  const [OutroObjeto, setOutroObjeto] = useState("");
+  const [outroObjeto, setOutroObjeto] = useState("");
   const [produto, setProduto] = useState("");
   const [recuperado, setRecuperado] = useState("");
   const [resumo, setResumo] = useState("");
@@ -43,14 +43,10 @@ const Prevencao = () => {
       setDepartamento(value);
     } else if (name === "identificou") {
       setIdentificou(value);
-      // Reset the value of outroColaborador when identificou changes
-      setOutroColaborador("");
     } else if (name === "outroColaborador") {
       setOutroColaborador(value);
     } else if (name === "utilizou") {
       setUtilizou(value);
-      // Reset the value of outroObjeto when utilizou changes
-      setOutroObjeto("");
     } else if (name === "outroObjeto") {
       setOutroObjeto(value);
     } else if (name === "produto") {
@@ -70,69 +66,66 @@ const Prevencao = () => {
     }
 
     setIsSubmitting(true);
+    setErrorMessage("");
+    setSuccessMessage("");
 
     try {
-      const formData = {
-        Nome: nome,
-        Data: formatDate(data),
-        Hora: hora,
-        Genero: genero,
-        Idade: idade,
-        Loja: loja,
-        Departamento: departamento,
-        Identificou: identificou === "Outro" ? outroColaborador : identificou,
-        Utilizou: utilizou === "Outros" ? outroObjeto : utilizou,
-        Produto: produto,
-        Recuperado: recuperado,
-        Resumo: resumo,
-      };
+      const formData = new FormData();
+      formData.append("Nome", nome);
+      formData.append("Data", data);
+      formData.append("Hora", hora);
+      formData.append("Genero", genero);
+      formData.append("Idade", idade);
+      formData.append("Loja", loja);
+      formData.append("Departamento", departamento);
+      formData.append("Identificou", identificou);
+      formData.append("OutroColaborador", outroColaborador);
+      formData.append("Utilizou", utilizou);
+      formData.append("OutroObjeto", outroObjeto);
+      formData.append("Produto", produto);
+      formData.append("Recuperado", recuperado);
+      formData.append("Resumo", resumo);
 
-      const response = await axios.post(
-        "https://script-to-save-form-data",
+      setIsSending(true);
+
+      await axios.post(
+        "https://script.google.com/macros/s/AKfycbwN-86reWdbhE0_ZW8zK-vA7lU2eLr5L1OIRRT7xGe_DcPx0Hkt9SybVCx-lO4kisgPcA/exec",
         formData
       );
 
-      console.log(response.data);
-
       setSuccessMessage("Formulário enviado com sucesso!");
-
-      // Reset form fields after submission
-      setNome("");
-      setData("");
-      setHora("");
-      setGenero("");
-      setIdade("");
-      setLoja("");
-      setDepartamento("");
-      setIdentificou("");
-      setOutroColaborador("");
-      setUtilizou("");
-      setOutroObjeto("");
-      setProduto("");
-      setRecuperado("");
-      setResumo("");
-
-      setIsSubmitting(false);
+      setIsSubmitted(true);
     } catch (error) {
-      console.error(error);
       setErrorMessage("Ocorreu um erro ao enviar o formulário.");
-      setIsSubmitting(false);
     }
+
+    setIsSending(false);
+    setIsSubmitting(false);
   };
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const options = { year: "numeric", month: "numeric", day: "numeric" };
-    return date.toLocaleDateString("pt-BR", options);
-  };
+  useEffect(() => {
+    if (isSubmitted) {
+      const timer = setTimeout(() => {
+        setIsSubmitted(false);
+        setNome("");
+        setData("");
+        setHora("");
+        setGenero("");
+        setIdade("");
+        setLoja("");
+        setDepartamento("");
+        setIdentificou("");
+        setOutroColaborador("");
+        setUtilizou("");
+        setOutroObjeto("");
+        setProduto("");
+        setRecuperado("");
+        setResumo("");
+      }, 3000);
 
-  const handleCloseSuccessMessage = () => {
-    setSuccessMessage("");
-  };
-
-  const handleCloseErrorMessage = () => {
-    setErrorMessage("");
-  };
+      return () => clearTimeout(timer);
+    }
+  }, [isSubmitted]);
   
   return (
     <div className="prevencao">
