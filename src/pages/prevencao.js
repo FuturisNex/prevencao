@@ -27,40 +27,40 @@ const Prevencao = () => {
   const [outroColaboradorText, setOutroColaboradorText] = useState("");
   const [outroObjetoText, setOutroObjetoText] = useState("");
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    if (name === "nome") {
-      setNome(value);
-    } else if (name === "data") {
-      setData(value);
-    } else if (name === "hora") {
-      setHora(value);
-    } else if (name === "genero") {
-      setGenero(value);
-    } else if (name === "idade") {
-      setIdade(value);
-    } else if (name === "loja") {
-      setLoja(value);
-    } else if (name === "departamento") {
-      setDepartamento(value);
-    } else if (name === "identificou") {
-      setIdentificou(value);
-    } else if (name === "outroColaborador") {
-      setOutroColaborador(value);
-      setOutroColaboradorText(value);
-    } else if (name === "utilizou") {
-      setUtilizou(value);
-    } else if (name === "outroObjeto") {
-      setOutroObjeto(value);
-      setOutroObjetoText(value);
-    } else if (name === "produto") {
-      setProduto(value);
-    } else if (name === "recuperado") {
-      setRecuperado(value);
-    } else if (name === "resumo") {
-      setResumo(value);
-    }
-  };
+const handleChange = (event) => {
+  const { name, value } = event.target;
+  if (name === "nome") {
+    setNome(value);
+  } else if (name === "data") {
+    setData(value);
+  } else if (name === "hora") {
+    setHora(value);
+  } else if (name === "genero") {
+    setGenero(value);
+  } else if (name === "idade") {
+    setIdade(value);
+  } else if (name === "loja") {
+    setLoja(value);
+  } else if (name === "departamento") {
+    setDepartamento(value);
+  } else if (name === "identificou") {
+    setIdentificou(value);
+  } else if (name === "outroColaborador") {
+    setOutroColaborador(value);
+    setOutroColaboradorText(value);
+  } else if (name === "utilizou") {
+    setUtilizou(value);
+  } else if (name === "outroObjeto") {
+    setOutroObjeto(value);
+    setOutroObjetoText(value);
+  } else if (name === "produto") {
+    setProduto(value);
+  } else if (name === "recuperado") {
+    setRecuperado(value);
+  } else if (name === "resumo") {
+    setResumo(value);
+  }
+};
 
   const handleSubmit = async (event) => {
     event.preventDefault();
