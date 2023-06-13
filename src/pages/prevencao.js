@@ -25,38 +25,38 @@ const Prevencao = () => {
   const [isSending, setIsSending] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-if (name === "nome") {
-  setNome(value);
-} else if (name === "data") {
-  setData(value);
-} else if (name === "hora") {
-  setHora(value);
-} else if (name === "genero") {
-  setGenero(value);
-} else if (name === "idade") {
-  setIdade(value);
-} else if (name === "loja") {
-  setLoja(value);
-} else if (name === "departamento") {
-  setDepartamento(value);
-} else if (name === "identificou") {
-  setIdentificou(value);
-} else if (name === "outroColaborador") { // Corrigir o nome do campo para "outroColaborador"
-  setOutroColaborador(value);
-} else if (name === "utilizou") {
-  setUtilizou(value);
-} else if (name === "OutroObjeto") {
-  setOutroObjeto(value);
-} else if (name === "produto") {
-  setProduto(value);
-} else if (name === "recuperado") {
-  setRecuperado(value);
-} else if (name === "resumo") {
-  setResumo(value);
-}
-  };  
+const handleChange = (event) => {
+  const { name, value } = event.target;
+  if (name === "nome") {
+    setNome(value);
+  } else if (name === "data") {
+    setData(value);
+  } else if (name === "hora") {
+    setHora(value);
+  } else if (name === "genero") {
+    setGenero(value);
+  } else if (name === "idade") {
+    setIdade(value);
+  } else if (name === "loja") {
+    setLoja(value);
+  } else if (name === "departamento") {
+    setDepartamento(value);
+  } else if (name === "identificou") {
+    setIdentificou(value);
+  } else if (name === "outroColaborador") {
+    setOutroColaborador(value);
+  } else if (name === "utilizou") {
+    setUtilizou(value);
+  } else if (name === "OutroObjeto") {
+    setOutroObjeto(value);
+  } else if (name === "produto") {
+    setProduto(value);
+  } else if (name === "recuperado") {
+    setRecuperado(value);
+  } else if (name === "resumo") {
+    setResumo(value);
+  }
+};
   
 const handleSubmit = async (event) => {
   event.preventDefault();
@@ -79,12 +79,12 @@ const handleSubmit = async (event) => {
     formData.append("Loja", loja);
     formData.append("Departamento", departamento);
     formData.append("Identificou", identificou);
-    if (identificou === "Outro") {
-      formData.append(identificou, outroColaborador);
+    if (identificou === "Outros") {
+      formData.append("OutroColaborador", outroColaborador);
     }
     formData.append("Utilizou", utilizou);
     if (utilizou === "Outros") {
-      formData.append(utilizou, OutroObjeto);
+      formData.append("OutroObjeto", OutroObjeto);
     }
     formData.append("Produto", produto);
     formData.append("Recuperado", recuperado);
