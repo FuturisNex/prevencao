@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Prevencao.css';
+import './Ocorrencia.css';
 import logo from "./grupo.png";
 import axios from "axios";
 
