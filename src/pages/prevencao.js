@@ -230,13 +230,12 @@ const handleChange = (event) => {
                 onChange={(event) => setIdade(event.target.value)}
                 required
               >
-                <option value="">Selecione uma loja</option>
+                <option value="">Selecione a Idade</option>
                 <option value="10 a 15 Anos">10 a 15 Anos</option>
-                <option value="16 a 18 Anos">16 a 18 Anos</option>
+                <option value="15 a 18 Anos">15 a 18 Anos</option>
                 <option value="18 a 20 Anos">18 a 20 Anos</option>
-                <option value="20 a 25 Anos">20 a 25 Anos</option>
-                <option value="25 a 30 Anos">25 a 30 Anos</option>
-                <option value="30 a 40 Anos">30 a 40 Anos</option>
+                <option value="20 a 30 Anos">20 a 30 Anos</option>
+                <option value="Maior que 30 Anos">Maior que 30 Anos</option>
                 <option value="Maior que 40 Anos">Maior que 40 Anos</option>
                 <option value="Maior que 50 Anos">Maior que 50 Anos</option>
               </select>
