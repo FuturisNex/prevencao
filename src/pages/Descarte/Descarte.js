@@ -57,7 +57,7 @@ const handleChange = (event) => {
       setIsSending(true);
 
       await axios.post(
-        "https://script.google.com/macros/s/AKfycbwN-86reWdbhE0_ZW8zK-vA7lU2eLr5L1OIRRT7xGe_DcPx0Hkt9SybVCx-lO4kisgPcA/exec",
+        "https://script.google.com/macros/s/AKfycbym0_D6Si7hezVszEO4F7PsWGcI2cmVPZaukz-CFyotuwfbHBe0nPtbbQ39m5A_fuqRUQ/exec",
         formData
       );
 
@@ -110,7 +110,6 @@ const handleChange = (event) => {
     setLoja("");
     setProduto("");
     setDepartamento("");
-    setUtilizou("");
     setQuantidade("");
   };
   
