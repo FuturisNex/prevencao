@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Prevencao.css';
 import logo from "./grupo.png";
 import axios from "axios";
@@ -14,134 +14,104 @@ const Prevencao = () => {
   const [identificou, setIdentificou] = useState("");
   const [outroColaborador, setOutroColaborador] = useState("");
   const [utilizou, setUtilizou] = useState("");
-  const [OutroObjeto, setOutroObjeto] = useState("");
+  const [outroObjeto, setOutroObjeto] = useState("");
   const [produto, setProduto] = useState("");
   const [recuperado, setRecuperado] = useState("");
   const [resumo, setResumo] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [successMessage, setSuccessMessage] = useState("");
-  const [isSending, setIsSending] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-const handleChange = (event) => {
-  const { name, value } = event.target;
-  if (name === "nome") {
-    setNome(value);
-  } else if (name === "data") {
-    setData(value);
-  } else if (name === "hora") {
-    setHora(value);
-  } else if (name === "genero") {
-    setGenero(value);
-  } else if (name === "idade") {
-    setIdade(value);
-  } else if (name === "loja") {
-    setLoja(value);
-  } else if (name === "departamento") {
-    setDepartamento(value);
-  } else if (name === "identificou") {
-    setIdentificou(value);
-  } else if (name === "outroColaborador") {
-    setOutroColaborador(value);
-  } else if (name === "utilizou") {
-    setUtilizou(value);
-  } else if (name === "OutroObjeto") {
-    setOutroObjeto(value);
-  } else if (name === "produto") {
-    setProduto(value);
-  } else if (name === "recuperado") {
-    setRecuperado(value);
-  } else if (name === "resumo") {
-    setResumo(value);
-  }
-};
-  
-const handleSubmit = async (event) => {
-  event.preventDefault();
-
-  if (isSubmitting) {
-    return;
-  }
-
-  setIsSubmitting(true);
-  setErrorMessage("");
-  setSuccessMessage("");
-
-  try {
-    const formData = new FormData();
-    formData.append("Nome", nome);
-    formData.append("Data", formatDate(data));
-    formData.append("Hora", hora);
-    formData.append("Genero", genero);
-    formData.append("Idade", idade);
-    formData.append("Loja", loja);
-    formData.append("Departamento", departamento);
-    formData.append("Identificou", identificou);
-    if (identificou === "Outros") {
-      formData.append("OutroColaborador", outroColaborador);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    if (name === "nome") {
+      setNome(value);
+    } else if (name === "data") {
+      setData(value);
+    } else if (name === "hora") {
+      setHora(value);
+    } else if (name === "genero") {
+      setGenero(value);
+    } else if (name === "idade") {
+      setIdade(value);
+    } else if (name === "loja") {
+      setLoja(value);
+    } else if (name === "departamento") {
+      setDepartamento(value);
+    } else if (name === "identificou") {
+      setIdentificou(value);
+      // Reset the value of outroColaborador when identificou changes
+      setOutroColaborador("");
+    } else if (name === "outroColaborador") {
+      setOutroColaborador(value);
+    } else if (name === "utilizou") {
+      setUtilizou(value);
+      // Reset the value of outroObjeto when utilizou changes
+      setOutroObjeto("");
+    } else if (name === "outroObjeto") {
+      setOutroObjeto(value);
+    } else if (name === "produto") {
+      setProduto(value);
+    } else if (name === "recuperado") {
+      setRecuperado(value);
+    } else if (name === "resumo") {
+      setResumo(value);
     }
-    formData.append("Utilizou", utilizou);
-    if (utilizou === "Outros") {
-      formData.append("OutroObjeto", OutroObjeto);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (isSubmitting) {
+      return;
     }
-    formData.append("Produto", produto);
-    formData.append("Recuperado", recuperado);
-    formData.append("Resumo", resumo);
 
-    const response = await axios.post(
-      "https://script.google.com/macros/s/AKfycbwN-86reWdbhE0_ZW8zK-vA7lU2eLr5L1OIRRT7xGe_DcPx0Hkt9SybVCx-lO4kisgPcA/exec",
-      formData
-    );
+    setIsSubmitting(true);
 
-    if (response.status === 200) {
-      setSuccessMessage(response.data);
-      resetForm();
-      setIsSubmitted(true);
-    } else {
-      throw new Error("Erro ao enviar formulário. Tente novamente mais tarde.");
+    try {
+      const formData = {
+        Nome: nome,
+        Data: formatDate(data),
+        Hora: hora,
+        Genero: genero,
+        Idade: idade,
+        Loja: loja,
+        Departamento: departamento,
+        Identificou: identificou === "Outro" ? outroColaborador : identificou,
+        Utilizou: utilizou === "Outros" ? outroObjeto : utilizou,
+        Produto: produto,
+        Recuperado: recuperado,
+        Resumo: resumo,
+      };
+
+      const response = await axios.post(
+        "https://script-to-save-form-data",
+        formData
+      );
+
+      console.log(response.data);
+
+      // Reset form fields after submission
+      setNome("");
+      setData("");
+      setHora("");
+      setGenero("");
+      setIdade("");
+      setLoja("");
+      setDepartamento("");
+      setIdentificou("");
+      setOutroColaborador("");
+      setUtilizou("");
+      setOutroObjeto("");
+      setProduto("");
+      setRecuperado("");
+      setResumo("");
+
+      setIsSubmitting(false);
+    } catch (error) {
+      console.error(error);
+      setIsSubmitting(false);
     }
-  } catch (error) {
-    console.error(error);
-    setErrorMessage(error.message);
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+  };
 
-  const resetForm = () => {
-    setNome("");
-    setData("");
-    setHora("");
-    setGenero("");
-    setIdade("");
-    setLoja("");
-    setDepartamento("");
-    setIdentificou("");
-    setUtilizou("");
-    setProduto("");
-    setRecuperado("");
-    setResumo("");
-  };
-  
-    const formatDate = (date) => {
-    const [year, month, day] = date.split("-");
-    return `${day}/${month}/${year}`;
-  };
- 
-  const handleCloseSuccessMessage = () => {
-    setIsSubmitted(false);
-    setSuccessMessage("");
-  };
-  
-    const handleOpenExcelLink = () => {
-    window.open(
-      "https://docs.google.com/spreadsheets/d/18mM2pToUkB7qZBAFzc4T658midBbTaDOxTumtGmU3a0/edit?usp=sharing",
-      "_blank"
-    );
-  };
-  
   return (
     <div className="prevencao">
       {isSubmitted && successMessage && (
