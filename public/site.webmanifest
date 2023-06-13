@@ -1,0 +1,15 @@
+{
+    "name": "Prevenção de Percas",
+    "short_name": "Portal Prevenção de Percas",
+    "icons": [
+      {
+        "src": "logo.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000"
+  } 
