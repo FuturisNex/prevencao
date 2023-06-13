@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Form } from 'react-router-dom';
 import Prevencao from './pages/prevencao';
 import TelaInicial from './pages/Inicio/TelaInicial';
 import Ocorrencia from './pages/Ocorrencia/Ocorrencia';
-import NotFound from './pages/Notfound/NotFound';
+import NotFound from './pages/NotFound/NotFound';
 
 const App = () => {
   return (
