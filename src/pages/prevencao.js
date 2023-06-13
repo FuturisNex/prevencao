@@ -296,7 +296,9 @@ const handleChange = (event) => {
                 <option value="">Selecione</option>
                 <option value="CFTV">CFTV</option>
                 <option value="Prevenção de Piso">Prevenção de Piso</option>
-                <option value="outroColaborador">Outro Colaborador</option>
+                <option value="Repositor">Repositor</option>
+                <option value="Cliente">Cliente</option>
+                <option value="Outro Colaborador">Outro Colaborador</option>
               </select>
             </div>
 
@@ -327,7 +329,8 @@ const handleChange = (event) => {
                 <option value="Mochila">Mochila</option>
                 <option value="Sacola">Sacola</option>
                 <option value="Roupa">Roupa</option>
-                <option value="outroObjeto">Outro</option>
+                <option value="Caixa de Papelão">Caixa de Papelão</option>
+                <option value="Nenhum objeto específico foi utilizado">Nenhum objeto específico foi utilizado</option>
               </select>
             </div>
 
