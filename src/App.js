@@ -9,9 +9,9 @@ const App = () => {
     <Router>
       <div className='bg-catskillWhite'>
         <Routes>
-          <Route path="/" element={<Prevencao />} />
+          <Route path="/furto" element={<Prevencao />} />
           <Route path="/ocorrencia" element={<Ocorrencia />} />
-          <Route path="/i" element={<TelaInicial />} />
+          <Route path="/" element={<TelaInicial />} />
         </Routes>
       </div>
     </Router>
