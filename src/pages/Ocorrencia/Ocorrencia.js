@@ -95,7 +95,7 @@ const handleChange = (event) => {
         setIdade("");
         setLoja("");
         setDepartamento("");
-        setIdentificou("");
+        setOcorrencia("");
         setResumo("");
       }, 3000);
 
