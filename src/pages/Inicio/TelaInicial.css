@@ -1,8 +1,7 @@
 .tela-inicial {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 
@@ -17,15 +16,12 @@
   display: inline-block;
   margin: 10px;
   padding: 10px 20px;
-  width: 200px; /* Defina o tamanho desejado */
-  height: 200px; /* Defina o tamanho desejado */
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: #007bff;
   color: #fff;
   text-decoration: none;
   font-size: 18px;
-  text-align: center;
 }
 
 .botao:hover {
