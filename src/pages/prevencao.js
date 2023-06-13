@@ -19,6 +19,8 @@ const Prevencao = () => {
   const [recuperado, setRecuperado] = useState("");
   const [resumo, setResumo] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -89,6 +91,8 @@ const Prevencao = () => {
 
       console.log(response.data);
 
+      setSuccessMessage("Formulário enviado com sucesso!");
+
       // Reset form fields after submission
       setNome("");
       setData("");
@@ -108,10 +112,25 @@ const Prevencao = () => {
       setIsSubmitting(false);
     } catch (error) {
       console.error(error);
+      setErrorMessage("Ocorreu um erro ao enviar o formulário.");
       setIsSubmitting(false);
     }
   };
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { year: "numeric", month: "numeric", day: "numeric" };
+    return date.toLocaleDateString("pt-BR", options);
+  };
+
+  const handleCloseSuccessMessage = () => {
+    setSuccessMessage("");
+  };
+
+  const handleCloseErrorMessage = () => {
+    setErrorMessage("");
+  };
+  
   return (
     <div className="prevencao">
       {isSubmitted && successMessage && (
