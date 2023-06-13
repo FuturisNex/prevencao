@@ -134,6 +134,11 @@ const handleChange = (event) => {
     }
   }, [isSubmitted]);
   
+    const formatDate = (date) => {
+    const [year, month, day] = date.split("-");
+    return `${day}/${month}/${year}`;
+  };
+  
     const handleCloseSuccessMessage = () => {
     setIsSubmitted(false);
     setSuccessMessage("");
