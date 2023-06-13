@@ -199,10 +199,10 @@ const handleChange = (event) => {
                 required
               >
                 <option value="">Selecione a Idade</option>
-                <option value="10 a 15 Anos">10 a 15 Anos</option>
-                <option value="15 a 18 Anos">15 a 18 Anos</option>
-                <option value="18 a 20 Anos">18 a 20 Anos</option>
-                <option value="20 a 30 Anos">20 a 30 Anos</option>
+                <option value="De 10 a 15 Anos">De 10 a 15 Anos</option>
+                <option value="De 15 a 18 Anos">De 15 a 18 Anos</option>
+                <option value="De 18 a 20 Anos">De 18 a 20 Anos</option>
+                <option value="De 20 a 30 Anos">De 20 a 30 Anos</option>
                 <option value="Maior que 30 Anos">Maior que 30 Anos</option>
                 <option value="Maior que 40 Anos">Maior que 40 Anos</option>
                 <option value="Maior que 50 Anos">Maior que 50 Anos</option>
