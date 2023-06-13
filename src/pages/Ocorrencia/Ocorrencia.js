@@ -10,7 +10,6 @@ const Ocorrencia = () => {
   const [genero, setGenero] = useState("");
   const [idade, setIdade] = useState("");
   const [loja, setLoja] = useState("");
-  const [departamento, setDepartamento] = useState("");
   const [ocorrencia, setOcorrencia] = useState("");
   const [resumo, setResumo] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -35,8 +34,6 @@ const handleChange = (event) => {
     setIdade(value);
   } else if (name === "loja") {
     setLoja(value);
-  } else if (name === "departamento") {
-    setDepartamento(value);
   } else if (name === "ocorrencia") {
     setOcorrencia(value);
   } else if (name === "resumo") {
@@ -63,7 +60,6 @@ const handleChange = (event) => {
       formData.append("Genero", genero);
       formData.append("Idade", idade);
       formData.append("Loja", loja);
-      formData.append("Departamento", departamento);
       formData.append("Ocorrencia", ocorrencia);
       formData.append("Resumo", resumo);
 
@@ -94,7 +90,6 @@ const handleChange = (event) => {
         setGenero("");
         setIdade("");
         setLoja("");
-        setDepartamento("");
         setOcorrencia("");
         setResumo("");
       }, 3000);
@@ -127,7 +122,6 @@ const handleChange = (event) => {
     setGenero("");
     setIdade("");
     setLoja("");
-    setDepartamento("");
     setOcorrencia("");
     setResumo("");
   };
@@ -231,25 +225,6 @@ const handleChange = (event) => {
                 <option value="3">Tomba</option>
                 <option value="4">Fraga Maia</option>
                 <option value="5">Artemia Pires</option>
-              </select>
-            </div>
-
-            <div className="prevencao__input-group">
-              <label htmlFor="departamento">Departamento:</label>
-              <select
-                id="departamento"
-                name="departamento"
-                value={departamento}
-                onChange={(event) => setDepartamento(event.target.value)}
-                required
-              >
-                <option value="">Selecione um departamento</option>
-                <option value="Commodities">Commodities</option>
-                <option value="Frios e Laticinios">Frios e Laticinios</option>
-                <option value="Higiene">Higiene</option>
-                <option value="Perfumaria">Perfumaria</option>
-                <option value="Hortifruti">Hortifruti</option>
-                <option value="Doces">Doces</option>
               </select>
             </div>
 
