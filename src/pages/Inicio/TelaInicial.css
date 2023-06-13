@@ -12,8 +12,9 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
-  max-width: 500px;
-  width: 100%;
+  max-width: 400px;
+  width: 90%;
+  max-width: 90vw;
 }
 
 .logo-form {
@@ -37,7 +38,7 @@
 
 .botao {
   display: inline-block;
-  width: 100%;
+  width: calc(50% - 20px);
   padding: 12px 20px;
   margin: 10px;
   font-size: 18px;
@@ -57,9 +58,8 @@
 /* Responsividade para dispositivos móveis */
 @media (max-width: 600px) {
   .container {
-    max-width: 100%;
-    border-radius: 0;
-    box-shadow: none;
+    width: 90%;
+    max-width: 90vw;
   }
 
   .titulo {
@@ -67,7 +67,6 @@
   }
 
   .botao {
-    width: 100%;
-    margin: 5px 0;
+    width: calc(100% - 20px);
   }
 }
