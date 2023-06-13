@@ -266,11 +266,11 @@ const Prevencao = () => {
                 <option value="">Selecione</option>
                 <option value="CFTV">CFTV</option>
                 <option value="Prevenção de Piso">Prevenção de Piso</option>
-                <option value="Outro">Outro Colaborador</option>
+                <option value="outroColaborador">Outro Colaborador</option>
               </select>
             </div>
 
-            {identificou === 'Outro' && (
+            {identificou === 'outroColaborador' && (
               <div className="prevencao__input-group">
                 <label htmlFor="outroColaborador">Outro Colaborador:</label>
                 <input
@@ -297,18 +297,18 @@ const Prevencao = () => {
                 <option value="Mochila">Mochila</option>
                 <option value="Sacola">Sacola</option>
                 <option value="Roupa">Roupa</option>
-                <option value="Outros">Outro</option>
+                <option value="outroObjeto">Outro</option>
               </select>
             </div>
 
-            {utilizou === 'Outros' && (
+            {utilizou === 'outroObjeto' && (
               <div className="prevencao__input-group">
-                <label htmlFor="OutroObjeto">Outro Objeto:</label>
+                <label htmlFor="outroObjeto">Outro Objeto:</label>
                 <input
                   type="text"
-                  id="OutroObjeto"
-                  name="OutroObjeto"
-                  value={OutroObjeto}
+                  id="outroObjeto"
+                  name="outroObjeto"
+                  value={outroObjeto}
                   onChange={handleChange}
                   required
                 />
