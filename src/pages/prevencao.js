@@ -14,13 +14,16 @@ const Prevencao = () => {
   const [identificou, setIdentificou] = useState("");
   const [outroColaborador, setOutroColaborador] = useState("");
   const [utilizou, setUtilizou] = useState("");
-  const [outroObjeto, setOutroObjeto] = useState("");
+  const [OutroObjeto, setOutroObjeto] = useState("");
   const [produto, setProduto] = useState("");
   const [recuperado, setRecuperado] = useState("");
   const [resumo, setResumo] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [successMessage, setSuccessMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [isSending, setIsSending] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
