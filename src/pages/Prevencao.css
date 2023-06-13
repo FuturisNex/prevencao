@@ -10,7 +10,7 @@
 }
 
 .form__ver {
-    width: 80%;
+    width: 100%;
     padding: 0.5rem;
     background-color: #3fc71d;
     color: #fff;
@@ -121,7 +121,7 @@
 .prevencao__submit {
     margin: 17px auto;
     display: block;
-    width: 80%;
+    width: 100%;
     padding: 12px;
     background-color: #4caf50;
     /* Cor verde */
