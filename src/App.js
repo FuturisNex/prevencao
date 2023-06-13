@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Form } from 'react-router-dom';
 import Prevencao from './pages/prevencao';
-import Prevencao from './pages/Inicio/TelaInicial';
-import Prevencao from './pages/Ocorrencia/Ocorrencia';
+import TelaInicial from './pages/Inicio/TelaInicial';
+import Ocorrencia from './pages/Ocorrencia/Ocorrencia';
 
 const App = () => {
   return (
