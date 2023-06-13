@@ -159,7 +159,7 @@ const handleChange = (event) => {
                 onChange={(event) => setLoja(event.target.value)}
                 required
               >
-                <option value="">Selecione uma loja</option>
+                <option value="">Selecione</option>
                 <option value="1">Santa Mônica</option>
                 <option value="11">Tomé de Souza</option>
                 <option value="2">Castro Alves</option>
@@ -190,7 +190,7 @@ const handleChange = (event) => {
                 onChange={(event) => setDepartamento(event.target.value)}
                 required
               >
-                <option value="">Selecione um departamento</option>
+                <option value="">Selecione</option>
                 <option value="Padaria">Padaria</option>
                 <option value="Rotisseria">Rotisseria</option>
                 <option value="Salgados">Salgados</option>
