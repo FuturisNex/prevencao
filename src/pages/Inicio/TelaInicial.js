@@ -8,7 +8,7 @@ function TelaInicial() {
     <div className="tela-inicial">
       <div className="container">
           <img src={logo} alt="Logo" className="logo-form" />
-        <h1>Prevenção de Perdas</h1>
+        <h1 className="titulo">Prevenção de Perdas</h1>
         <div className="botoes">
           <Link to="/furto" className="botao">
             Furto
