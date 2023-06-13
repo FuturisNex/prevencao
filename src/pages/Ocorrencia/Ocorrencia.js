@@ -70,7 +70,7 @@ const handleChange = (event) => {
       setIsSending(true);
 
       await axios.post(
-        "https://script.google.com/macros/s/AKfycbwN-86reWdbhE0_ZW8zK-vA7lU2eLr5L1OIRRT7xGe_DcPx0Hkt9SybVCx-lO4kisgPcA/exec",
+        "https://script.google.com/macros/s/AKfycbwZb6Ru5J-aWJlpbC_8b-llXALERIF8QlyjGQpsoPETNMHDctCJ6Q1PxaL8kOAUFKZy/exec",
         formData
       );
 
