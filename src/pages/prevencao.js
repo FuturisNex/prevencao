@@ -177,7 +177,7 @@ const handleChange = (event) => {
       <img src={logo} alt="Logo" className="logo-form" />
       <h2 className="prevencao__titulo">Formulário de Prevenção</h2>
       <form className="prevencao__form" onSubmit={handleSubmit}>
-            <h3 className="prevencao__subtitulo">Características</h3>
+            <h3 className="prevencao__subtitulo">Furto</h3>
 
             <div className="prevencao__input-group">
               <label htmlFor="nome">Nome:</label>
@@ -249,8 +249,6 @@ const handleChange = (event) => {
               </select>
             </div>
         
-            <h3 className="prevencao__subtitulo">Furto</h3>
-
             <div className="prevencao__input-group">
               <label htmlFor="loja">Loja:</label>
               <select
@@ -307,20 +305,6 @@ const handleChange = (event) => {
               </select>
             </div>
 
-{identificou === 'outroColaborador' && (
-  <div className="prevencao__input-group">
-    <label htmlFor="outroColaborador">Outro Colaborador:</label>
-    <input
-      type="text"
-      id="outroColaborador"
-      name="outroColaborador"
-      value={outroColaboradorText}
-      onChange={(event) => setOutroColaboradorText(event.target.value)}
-      required
-    />
-  </div>
-)}
-
             <div className="prevencao__input-group">
               <label htmlFor="utilizou">Utilizou algum objeto para praticar o furto?</label>
               <select
@@ -338,20 +322,6 @@ const handleChange = (event) => {
                 <option value="Nenhum objeto foi utilizado">Nenhum objeto foi utilizado</option>
               </select>
             </div>
-
-{utilizou === 'outroObjeto' && (
-  <div className="prevencao__input-group">
-    <label htmlFor="outroObjeto">Outro Objeto:</label>
-    <input
-      type="text"
-      id="outroObjeto"
-      name="outroObjeto"
-      value={outroObjetoText}
-      onChange={(event) => setOutroObjetoText(event.target.value)}
-      required
-    />
-  </div>
-)}
 
             <div className="prevencao__input-group">
               <label htmlFor="produto">Produto Furtado:</label>
