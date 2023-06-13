@@ -143,6 +143,21 @@ const handleChange = (event) => {
     );
   };
   
+    const resetForm = () => {
+    setNome("");
+    setData("");
+    setHora("");
+    setGenero("");
+    setIdade("");
+    setLoja("");
+    setDepartamento("");
+    setIdentificou("");
+    setUtilizou("");
+    setProduto("");
+    setRecuperado("");
+    setResumo("");
+  };
+  
   return (
     <div className="prevencao">
       {isSubmitted && successMessage && (
