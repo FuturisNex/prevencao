@@ -48,6 +48,9 @@ const handleChange = (event) => {
   } else if (name === "outroColaborador") {
     setOutroColaborador(value);
   } else if (name === "outroObjeto") {
+    if (value !== "Outro") {
+      setOutroObjetoText("");
+    }
     setOutroObjeto(value);
   } else if (name === "produto") {
     setProduto(value);
