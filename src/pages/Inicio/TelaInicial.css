@@ -67,6 +67,10 @@
     height: 100vh;
     overflow-y: visible;
   }
+  
+  .logo-form {
+  margin-top: 50px;
+  }
 
   .titulo {
     font-size: 26px;
