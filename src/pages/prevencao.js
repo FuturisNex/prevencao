@@ -186,7 +186,7 @@ const handleChange = (event) => {
             <h3 className="prevencao__subtitulo">Furto | Degustação</h3>
 
             <div className="prevencao__input-group">
-              <label htmlFor="nome">Nome:</label>
+              <label htmlFor="nome">Seu Nome:</label>
               <input
                 type="text"
                 id="nome"
