@@ -47,7 +47,7 @@ const handleChange = (event) => {
 
     try {
       const formData = new FormData();
-      formData.append("Data", data);
+      formData.append("Data", formatDate(data));
       formData.append("Hora", hora);
       formData.append("Loja", loja);
       formData.append("Produto", produto);
