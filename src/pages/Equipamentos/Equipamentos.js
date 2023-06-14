@@ -208,7 +208,7 @@ const handleChange = (event) => {
             </div>
 
             <div className="prevencao__input-group">
-              <label htmlFor="quantidade">Quantidade de Descarte:</label>
+              <label htmlFor="quantidade">Quantidade:</label>
               <input
                 type="text"
                 id="quantidade"
