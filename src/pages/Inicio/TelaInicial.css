@@ -58,6 +58,21 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+.botao1 {
+  display: inline-block;
+  width: calc(50% - 20px);
+  padding: 12px 20px;
+  margin: 10px;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #FF0000;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 
 .botao:hover {
   background-color: #0056b3;
