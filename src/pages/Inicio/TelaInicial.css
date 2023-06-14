@@ -99,4 +99,7 @@
   .botao {
     width: calc(100% - 20px);
   }
+    .botao1 {
+    width: calc(100% - 20px);
+  }
 }
