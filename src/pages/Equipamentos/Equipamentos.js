@@ -226,7 +226,6 @@ const handleChange = (event) => {
                 name="observacao"
                 value={observacao}
                 onChange={handleChange}
-                required
               />
             </div>
 
