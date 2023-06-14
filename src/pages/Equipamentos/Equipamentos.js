@@ -9,8 +9,8 @@ const Equipamentos = () => {
   const [loja, setLoja] = useState("");
   const [defeito, setDefeito] = useState("");
   const [equipamentos, setEquipamentos] = useState("");
-  const [observacao, setObservacao] = useState("");
   const [quantidade, setQuantidade] = useState("");
+  const [observacao, setObservacao] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -30,10 +30,10 @@ const handleChange = (event) => {
     setDefeito(value);
   } else if (name === "equipamentos") {
     setEquipamentos(value);
-  } else if (name === "observacao") {
-    setObservacao(value);
   } else if (name === "quantidade") {
     setQuantidade(value);
+  } else if (name === "observacao") {
+    setObservacao(value);
   }
 };
 
@@ -55,9 +55,8 @@ const handleChange = (event) => {
       formData.append("Loja", loja);
       formData.append("Defeito", defeito);
       formData.append("Equipamentos", equipamentos);
-      formData.append("Observacao", observacao);
       formData.append("Quantidade", quantidade);
-
+      formData.append("Observacao", observacao);
       setIsSending(true);
 
       await axios.post(
@@ -84,8 +83,8 @@ const handleChange = (event) => {
         setLoja("");
         setDefeito("");
         setEquipamentos("");
-        setObservacao("");
         setQuantidade("");
+        setObservacao("");
       }, 3000);
 
       return () => clearTimeout(timer);
@@ -115,8 +114,8 @@ const handleChange = (event) => {
     setLoja("");
     setDefeito("");
     setEquipamentos("");
-    setObservacao("");
     setQuantidade("");
+    setObservacao("");
   };
   
   return (
@@ -209,23 +208,23 @@ const handleChange = (event) => {
             </div>
 
             <div className="prevencao__input-group">
-              <label htmlFor="observacao">Observações:</label>
-              <textarea
-                id="observacao"
-                name="observacao"
-                value={observacao}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <div className="prevencao__input-group">
               <label htmlFor="quantidade">Quantidade de Descarte:</label>
               <input
                 type="text"
                 id="quantidade"
                 name="quantidade"
                 value={quantidade}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="prevencao__input-group">
+              <label htmlFor="observacao">Observações:</label>
+              <textarea
+                id="observacao"
+                name="observacao"
+                value={observacao}
                 onChange={handleChange}
                 required
               />
