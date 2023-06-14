@@ -82,7 +82,7 @@ const handleChange = (event) => {
     try {
       const formData = new FormData();
       formData.append("Nome", nome);
-      formData.append("Data", data);
+      formData.append("Data", formatDate(data));
       formData.append("Hora", hora);
       formData.append("Tipo", tipo);
       formData.append("Genero", genero);
