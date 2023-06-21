@@ -6,6 +6,7 @@ import Ocorrencia from './pages/Ocorrencia/Ocorrencia';
 import Descarte from './pages/Descarte/Descarte';
 import Equipamentos from './pages/Equipamentos/Equipamentos';
 import NotFound from './pages/NotFound/NotFound';
+import NotificationControl from './pages/NotificationControl/NotificationControl';
 
 const App = () => {
   return (
@@ -17,7 +18,8 @@ const App = () => {
           <Route path="/descarte" element={<Descarte />} />
           <Route path="/equipamentos" element={<Equipamentos />} />
           <Route path="/" element={<TelaInicial />} />
-            
+          <Route path="/noti" element={<NotificationControl />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
