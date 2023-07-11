@@ -6,7 +6,6 @@ import Ocorrencia from './pages/Ocorrencia/Ocorrencia';
 import Descarte from './pages/Descarte/Descarte';
 import Equipamentos from './pages/Equipamentos/Equipamentos';
 import NotFound from './pages/NotFound/NotFound';
-import NotificationControl from './pages/NotificationControl/NotificationControl';
 
 const App = () => {
   return (
