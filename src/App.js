@@ -18,7 +18,6 @@ const App = () => {
           <Route path="/descarte" element={<Descarte />} />
           <Route path="/equipamentos" element={<Equipamentos />} />
           <Route path="/" element={<TelaInicial />} />
-          <Route path="/noti" element={<NotificationControl />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
