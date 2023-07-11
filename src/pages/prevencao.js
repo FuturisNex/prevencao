@@ -151,7 +151,7 @@ const handleChange = (event) => {
   
     const handleOpenExcelLink = () => {
     window.open(
-      "https://docs.google.com/spreadsheets/d/18mM2pToUkB7qZBAFzc4T658midBbTaDOxTumtGmU3a0/edit?usp=sharing",
+      "https://lookerstudio.google.com/reporting/bc184541-8cc5-47c0-9298-e0746dd5a47c",
       "_blank"
     );
   };
