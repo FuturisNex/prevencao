@@ -1,0 +1,106 @@
+.tela-inicial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f7f7f7;
+  }
+  
+  .container {
+    text-align: center;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    max-width: 500px;
+    width: 50%;
+    max-width: 90vw;
+    height: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .logo-inicio {
+    background-size: cover;
+    width: 100%;
+    max-width: 12em;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .titulo {
+    font-size: 32px;
+    color: #333333;
+    margin-bottom: 20px;
+  }
+  
+  .botoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .botao {
+    display: inline-block;
+    width: calc(50% - 20px);
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .botao1 {
+    display: inline-block;
+    width: calc(50% - 20px);
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #FF0000;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  
+  .botao:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsividade para dispositivos móveis */
+  @media (max-width: 600px) {
+    .container {
+      width: 90%;
+      max-width: 90vw;
+      max-height: 100%;
+      height: 100vh;
+      overflow-y: visible;
+    }
+    
+    .logo-inicio {
+    margin-top: 80px;
+    }
+  
+    .titulo {
+      font-size: 26px;
+    }
+  
+    .botao {
+      width: calc(100% - 20px);
+    }
+      .botao1 {
+      width: calc(100% - 20px);
+    }
+  }
+  
