@@ -22,7 +22,7 @@ function ListaOpcao() {
           <Link to="/inventario-lista" className="botao1">
             Inventário
           </Link>
-          <Link to="/descarte-lista" className="botaol">
+          <Link to="/descarte-lista" className="botaofinal">
             Descartes
           </Link>
         </div>

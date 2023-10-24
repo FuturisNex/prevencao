@@ -22,7 +22,7 @@ function TelaInicial() {
           <Link to="/inventario" className="botao1">
             Inventário
           </Link>
-          <Link to="/descarte" className="botao">
+          <Link to="/descarte" className="botaofinal">
             Descartes
           </Link>
         </div>
