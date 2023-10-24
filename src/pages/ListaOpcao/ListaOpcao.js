@@ -5,24 +5,24 @@ import "./ListaOpcao.css";
 
 function ListaOpcao() {
   return (
-    <div className="tela-inicial">
-      <div className="container">
+    <div className="tela-iniciall">
+      <div className="containerl">
         <img src={logo} alt="Logo" className="logo-inicio" />
-        <h1 className="titulo">Prevenção de Perdas Lista</h1>
-        <div className="botoes">
-          <Link to="/furto-lista" className="botao">
+        <h1 className="titulo">Lista Prevenção de Perdas</h1>
+        <div className="botoesl">
+          <Link to="/furto-lista" className="botaol">
             Furtos
           </Link>
-          <Link to="/ocorrencia-lista" className="botao">
+          <Link to="/ocorrencia-lista" className="botaol">
             Ocorrências
           </Link>
-          <Link to="/equipamentos-lista" className="botao">
+          <Link to="/equipamentos-lista" className="botaol">
             Equipamentos
           </Link>
           <Link to="/inventario-lista" className="botao1">
             Inventário
           </Link>
-          <Link to="/descarte-lista" className="botao">
+          <Link to="/descarte-lista" className="botaol">
             Descartes
           </Link>
         </div>

@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="header">
-        <h1>Bem-vindo ao Portal <p/> Prevenção de Percas</h1>
+        <h1 className="home-titulo">Portal Prevenção de Percas</h1>
       </div>
       <div className="options">
         <Link to="/enviar" className="option">
