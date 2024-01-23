@@ -19,11 +19,11 @@ function TelaInicial() {
           <Link to="/equipamentos" className="botao">
             Equipamentos
           </Link>
-          <Link to="/inventario" className="botao1">
-            Inventário
-          </Link>
-          <Link to="/descarte" className="botaofinal">
+          <Link to="/descarte" className="botao">
             Descartes
+          </Link>
+              <Link to="/inventario" className="botao1">
+            Inventário
           </Link>
         </div>
       </div>
