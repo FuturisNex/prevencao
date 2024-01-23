@@ -121,7 +121,7 @@ const handleChange = (event) => {
           <button onClick={handleCloseSuccessMessage}>OK</button>
         </div>
       )}
-            <Link to="/avarias/avarias-home" className="back-button">
+            <Link to="/descarte-lista" className="back-button">
             <span>&#8592;</span>   Lista Descarte
           </Link>
       <img src={logo} alt="Logo" className="logo-form" />
