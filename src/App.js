@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Form } from "react-router-dom";
 import TelaInicial from "./pages/Inicio/TelaInicial";
 import NotFound from "./pages/NotFound/NotFound";
-import Home from "./pages/home/home";
 import ListaOpcao from "./pages/ListaOpcao/ListaOpcao";
 
 import Prevencao from "./pages/Opcoes/Prevencao/prevencao";
