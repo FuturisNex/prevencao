@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Ocorrencia.css';
+import { Link } from "react-router-dom";
 import logo from "../../../resources/images/logo.png";
 import axios from "axios";
 
