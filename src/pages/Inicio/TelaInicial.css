@@ -48,7 +48,7 @@
   display: inline-block;
   width: calc(50% - 20px);
   padding: 12px 70px;
-  margin: 10px;
+  margin: 8px;
   font-size: 18px;
   color: #ffffff;
   background-color: #007bff;
@@ -58,21 +58,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.botaofinal {
-  display: inline-block;
-  width: calc(50% - 20px);
-  padding: 12px 70px;
-  margin: 10px;
-  margin-bottom: 30px;
-  font-size: 18px;
-  color: #ffffff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 6px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+
 .botao1 {
   display: inline-block;
   width: calc(50% - 20px);
