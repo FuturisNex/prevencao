@@ -23,16 +23,12 @@ const App = () => {
         <Routes>
           <Route path="/furto" element={<Prevencao />} />
           <Route path="/furto-lista" element={<ListaPrevencao />} />
-
           <Route path="/ocorrencia" element={<Ocorrencia />} />
           <Route path="/ocorrencia-lista" element={<ListaOcorrencia />} />
-
           <Route path="/descarte" element={<Descarte />} />
           <Route path="/descarte-lista" element={<ListaDescarte />} />
-
           <Route path="/equipamentos" element={<Equipamentos />} />
           <Route path="/equipamentos-lista" element={<ListaEquipamentos />} />
-
           <Route path="/lista" element={<ListaOpcao />} />
           <Route path="/enviar" element={<TelaInicial />} />
           <Route path="/" element={<TelaInicial />} />
