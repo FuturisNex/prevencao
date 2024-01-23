@@ -19,11 +19,11 @@ function ListaOpcao() {
           <Link to="/equipamentos-lista" className="botaol">
             Equipamentos
           </Link>
-          <Link to="/inventario-lista" className="botao1">
-            Inventário
-          </Link>
           <Link to="/descarte-lista" className="botaofinal">
             Descartes
+          </Link>
+              <Link to="/inventario-lista" className="botao1">
+            Inventário
           </Link>
         </div>
       </div>
