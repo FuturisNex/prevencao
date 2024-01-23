@@ -127,7 +127,7 @@ const handleChange = (event) => {
         </div>
       )}
             <Link to="/equipamentos-lista" className="back-button">
-            <span>&#8592;</span>   Lista Equipamentos
+            <span>&#8592;</span>   Lista de Equipamentos
           </Link>
       <img src={logo} alt="Logo" className="logo-form" />
       <h3 className="prevencao__subtitulo">Equipamentos de Segurança</h3>
