@@ -120,7 +120,10 @@ const handleChange = (event) => {
           <span>{successMessage}</span>
           <button onClick={handleCloseSuccessMessage}>OK</button>
         </div>
-      )}    
+      )}
+            <Link to="/avarias/avarias-home" className="back-button">
+            <span>&#8592;</span>   Lista Descarte
+          </Link>
       <img src={logo} alt="Logo" className="logo-form" />
       <h3 className="prevencao__subtitulo">Descartes</h3>
       <form className="prevencao__form" onSubmit={handleSubmit}>
