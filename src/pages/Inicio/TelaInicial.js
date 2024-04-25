@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaEye, FaExclamationCircle, FaToolbox, FaTrashAlt, FaList } from 'react-icons/fa';
+import { FaToolbox } from 'react-icons/fa';
+import { GiPoliceOfficerHead } from "react-icons/gi";
+import { BsClipboard2Fill } from "react-icons/bs";
+import { PiSirenFill } from "react-icons/pi";
+import { GiCardDiscard } from "react-icons/gi";
 import logo from "../../resources/images/logo.png";
 import './TelaInicial.css';
 
@@ -12,19 +16,19 @@ function TelaInicial() {
         <h1 className="titulo-inicio">Prevenção de Perdas</h1>
         <div className="botoes">
           <Link to="/furto" className="botao-inicio">
-            <FaEye className="icone" /> Furtos
+            <GiPoliceOfficerHead className="icone" /> Furtos
           </Link>
           <Link to="/ocorrencia" className="botao-inicio">
-            <FaExclamationCircle className="icone" /> Ocorrências
+            <PiSirenFill className="icone" /> Ocorrências
           </Link>
           <Link to="/equipamentos" className="botao-inicio">
             <FaToolbox className="icone" /> Equipamentos
           </Link>
           <Link to="/descarte" className="botao-inicio">
-            <FaTrashAlt className="icone" /> Descartes
+            <GiCardDiscard className="icone" /> Descartes
           </Link>
           <Link to="/inventario" className="botao-inicio">
-            <FaList className="icone" /> Inventário
+            <BsClipboard2Fill className="icone" /> Inventário
           </Link>
         </div>
       </div>
