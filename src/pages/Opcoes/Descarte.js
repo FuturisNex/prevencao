@@ -125,7 +125,6 @@ const Descarte = () => {
       <Link to="/" className="back-button">
         <span>Voltar</span>
       </Link>
-      <img src={logo} alt="Logo" className="logo-form" />
       <h3 className="prevencao__subtitulo">Descartes</h3>
       <form className="prevencao__form" onSubmit={handleSubmit}>
 
