@@ -200,6 +200,7 @@
     .prevencao__input-group select {
         width: calc(100% - 0px);
         margin-right: 12px;
+        background-color: white;
     }
 
     .prevencao {
