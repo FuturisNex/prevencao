@@ -17,6 +17,7 @@ const Prevencao = () => {
   const [outroColaborador, setOutroColaborador] = useState("");
   const [utilizou, setUtilizou] = useState("");
   const [outroObjeto, setOutroObjeto] = useState("");
+  const [ocorrencia, setOcorrencia] = useState("");
   const [produto, setProduto] = useState("");
   const [recuperado, setRecuperado] = useState("");
   const [resumo, setResumo] = useState("");
@@ -58,6 +59,8 @@ const Prevencao = () => {
       setOutroObjeto(value);
     } else if (name === "produto") {
       setProduto(value);
+    } else if (name === "ocorrencia") {
+      setOcorrencia(value);
     } else if (name === "recuperado") {
       setRecuperado(value);
     } else if (name === "resumo") {
@@ -95,6 +98,7 @@ const Prevencao = () => {
       formData.append("Utilizou", utilizou);
       formData.append("OutroObjeto", utilizou === "outroObjeto" ? outroObjetoText : "");
       formData.append("Produto", produto);
+      formData.append("Ocorrencia", ocorrencia);
       formData.append("Recuperado", recuperado);
       formData.append("Resumo", resumo);
 
@@ -131,6 +135,7 @@ const Prevencao = () => {
         setOutroColaborador("");
         setUtilizou("");
         setOutroObjeto("");
+        setOcorrencia("");
         setProduto("");
         setRecuperado("");
         setResumo("");
@@ -167,6 +172,7 @@ const Prevencao = () => {
     setLoja("");
     setDepartamento("");
     setIdentificou("");
+    setOcorrencia("");
     setUtilizou("");
     setProduto("");
     setRecuperado("");
@@ -223,7 +229,7 @@ const Prevencao = () => {
         </div>
 
         <div className="prevencao__input-group">
-          <label htmlFor="tipo">Furto ou Degustação?</label>
+          <label htmlFor="tipo">Furto ou Inibição?</label>
           <select
             id="tipo"
             name="tipo"
@@ -233,7 +239,7 @@ const Prevencao = () => {
           >
             <option value="">Selecione</option>
             <option value="Furto">Furto</option>
-            <option value="Degustação">Degustação</option>
+            <option value="Inibição">Inibição</option>
           </select>
         </div>
 
@@ -282,12 +288,15 @@ const Prevencao = () => {
             required
           >
             <option value="">Selecione</option>
-            <option value="1">Santa Mônica</option>
-            <option value="11">Tomé de Souza</option>
-            <option value="2">Castro Alves</option>
-            <option value="3">Tomba</option>
-            <option value="4">Fraga Maia</option>
-            <option value="5">Artemia Pires</option>
+            <option value="Santa Mônica">Santa Mônica</option>
+            <option value="Tomé de Souza">Tomé de Souza</option>
+            <option value="Castro Alves">Castro Alves</option>
+            <option value="Tomba">Tomba</option>
+            <option value="Fraga Maia">Fraga Maia</option>
+            <option value="Artemia Pires">Artemia Pires</option>
+            <option value="Calamar Express">Calamar Express</option>
+            <option value="Artemia Express">Artemia Express</option>
+            <option value="Santo Estevão">Santo Estevão</option>
           </select>
         </div>
 
@@ -322,9 +331,24 @@ const Prevencao = () => {
             <option value="">Selecione</option>
             <option value="CFTV">CFTV</option>
             <option value="Prevenção de Piso">Prevenção de Piso</option>
-            <option value="Repositor">Repositor</option>
             <option value="Cliente">Cliente</option>
-            <option value="Outro Colaborador">Outro Colaborador</option>
+            <option value="Outro Colaborador">Colaborador</option>
+          </select>
+        </div>
+
+        <div className="prevencao__input-group">
+          <label htmlFor="ocorrencia">Ocorrência</label>
+          <select
+            id="ocorrencia"
+            name="ocorrencia"
+            value={ocorrencia}
+            onChange={(event) => setOcorrencia(event.target.value)}
+            required
+          >
+            <option value="">Selecione</option>
+            <option value="Cliente">Com Cliente</option>
+            <option value="Colaborador">Com Colaborador</option>
+            <option value="Cliente e Colaborador">Com Cliente e Colaborador</option>
           </select>
         </div>
 
@@ -371,7 +395,7 @@ const Prevencao = () => {
         </div>
 
         <div className="prevencao__input-group">
-          <label htmlFor="resumo">Resumo do Furto:</label>
+          <label htmlFor="resumo">Resumo da Ocorrencia:</label>
           <textarea
             id="resumo"
             name="resumo"

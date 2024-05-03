@@ -10,8 +10,20 @@
   text-align: center;
 }
 
-.logo-inicial {
-  width: 130px;
+.logos-home {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo_grupo {
+  width: 140px;
+  height: auto;
+}
+
+.logo_prevencao {
+  width: 90px;
   height: auto;
 }
 
