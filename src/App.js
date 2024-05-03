@@ -23,7 +23,6 @@ const App = () => {
       }
     };
 
-    // Verificar a cada 24 horas (86400000 milissegundos)
     const interval = setInterval(checkForNewVersion, 86400000);
     return () => clearInterval(interval);
   }, []);

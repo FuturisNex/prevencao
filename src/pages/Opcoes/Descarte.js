@@ -98,11 +98,11 @@ const Descarte = () => {
     setSuccessMessage("");
   };
 
-  const handleOpenExcelLink = () => {
-    window.open(
-      "https://lookerstudio.google.com/reporting/bc184541-8cc5-47c0-9298-e0746dd5a47c",
-      "_blank"
-    );
+  const handleOpenLink = () => {
+    const isMobile = window.innerWidth <= 768;
+    const link = isMobile ? "https://lookerstudio.google.com/reporting/6ee0737d-4039-45dd-a9c6-565508546dda" : "https://lookerstudio.google.com/reporting/bc184541-8cc5-47c0-9298-e0746dd5a47c";
+
+    window.open(link, "_blank");
   };
 
   const resetForm = () => {
@@ -224,13 +224,13 @@ const Descarte = () => {
           <button
             type="button"
             className="prevencao__avancar"
-            onClick={handleOpenExcelLink}
+            onClick={handleOpenLink}
           >
             Lista
           </button>
         </div>
-      </form>
-    </div>
+      </form >
+    </div >
   );
 };
 

@@ -138,7 +138,7 @@ const Ocorrencia = () => {
       <Link to="/" className="back-button">
         <span>Voltar</span>
       </Link>
-      <h3 className="prevencao__subtitulo">Ocorrência</h3>
+      <h3 className="prevencao__subtitulo">Degustações</h3>
       <form className="prevencao__form" onSubmit={handleSubmit}>
 
         <div className="prevencao__input-group">
@@ -221,12 +221,15 @@ const Ocorrencia = () => {
             required
           >
             <option value="">Selecione</option>
-            <option value="1">Santa Mônica</option>
-            <option value="11">Tomé de Souza</option>
-            <option value="2">Castro Alves</option>
-            <option value="3">Tomba</option>
-            <option value="4">Fraga Maia</option>
-            <option value="5">Artemia Pires</option>
+            <option value="Santa Mônica">Santa Mônica</option>
+            <option value="Tomé de Souza">Tomé de Souza</option>
+            <option value="Castro Alves">Castro Alves</option>
+            <option value="Tomba">Tomba</option>
+            <option value="Fraga Maia">Fraga Maia</option>
+            <option value="Artemia Pires">Artemia Pires</option>
+            <option value="Calamar Express">Calamar Express</option>
+            <option value="Artemia Express">Artemia Express</option>
+            <option value="Santo Estevão">Santo Estevão</option>
           </select>
         </div>
 
