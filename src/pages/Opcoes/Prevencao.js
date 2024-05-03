@@ -332,7 +332,7 @@ const Prevencao = () => {
             <option value="CFTV">CFTV</option>
             <option value="Prevenção de Piso">Prevenção de Piso</option>
             <option value="Cliente">Cliente</option>
-            <option value="Outro Colaborador">Colaborador</option>
+            <option value="Colaborador">Colaborador</option>
           </select>
         </div>
 
