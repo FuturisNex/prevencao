@@ -23,7 +23,7 @@ function TelaInicial() {
             <GiPoliceOfficerHead className="icone" /> Furtos
           </Link>
           <Link to="/ocorrencia" className="botao-inicio">
-            <PiSirenFill className="icone" /> Desgustação/Ajustando
+            <PiSirenFill className="icone" /> Ajustando
           </Link>
           <Link to="/descarte" className="botao-inicio">
             <GiCardDiscard className="icone" /> Descartes
