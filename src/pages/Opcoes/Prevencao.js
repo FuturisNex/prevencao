@@ -190,7 +190,7 @@ const Prevencao = () => {
       <Link to="/" className="back-button">
         <span>Voltar</span>
       </Link>
-      <h3 className="prevencao__subtitulo">Furto | Degustação</h3>
+      <h3 className="prevencao__subtitulo">Furtos</h3>
       <form className="prevencao__form" onSubmit={handleSubmit}>
 
         <div className="prevencao__input-group">

@@ -8,6 +8,8 @@ const Ocorrencia = () => {
   const [nome, setNome] = useState("");
   const [data, setData] = useState("");
   const [hora, setHora] = useState("");
+  const [tipo, setTipo] = useState("");
+  const [produto, setProduto] = useState("");
   const [genero, setGenero] = useState("");
   const [idade, setIdade] = useState("");
   const [loja, setLoja] = useState("");
@@ -33,6 +35,10 @@ const Ocorrencia = () => {
       setGenero(value);
     } else if (name === "idade") {
       setIdade(value);
+    } else if (name === "produto") {
+      setProduto(value);
+    } else if (name === "tipo") {
+      setTipo(value);
     } else if (name === "loja") {
       setLoja(value);
     } else if (name === "ocorrencia") {
@@ -61,6 +67,8 @@ const Ocorrencia = () => {
       formData.append("Genero", genero);
       formData.append("Idade", idade);
       formData.append("Loja", loja);
+      formData.append("Produto", produto);
+      formData.append("Tipo", tipo);
       formData.append("Ocorrencia", ocorrencia);
       formData.append("Resumo", resumo);
 
@@ -91,6 +99,8 @@ const Ocorrencia = () => {
         setGenero("");
         setIdade("");
         setLoja("");
+        setProduto("");
+        setTipo("");
         setOcorrencia("");
         setResumo("");
       }, 3000);
@@ -123,6 +133,8 @@ const Ocorrencia = () => {
     setGenero("");
     setIdade("");
     setLoja("");
+    setProduto("");
+    setTipo("");
     setOcorrencia("");
     setResumo("");
   };
@@ -231,6 +243,33 @@ const Ocorrencia = () => {
             <option value="Artemia Express">Artemia Express</option>
             <option value="Santo Estevão">Santo Estevão</option>
           </select>
+        </div>
+
+        <div className="prevencao__input-group">
+          <label htmlFor="tipo">Degustação ou Inibição?</label>
+          <select
+            id="tipo"
+            name="tipo"
+            value={tipo}
+            onChange={(event) => setTipo(event.target.value)}
+            required
+          >
+            <option value="">Selecione</option>
+            <option value="Degustação">Degustação</option>
+            <option value="Inibição">Inibição</option>
+          </select>
+        </div>
+
+        <div className="prevencao__input-group">
+          <label htmlFor="produto">Produto Degustado:</label>
+          <input
+            type="text"
+            id="produto"
+            name="produto"
+            value={produto}
+            onChange={handleChange}
+            required
+          />
         </div>
 
         <div className="prevencao__input-group">
