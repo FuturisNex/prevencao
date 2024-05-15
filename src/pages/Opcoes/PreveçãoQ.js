@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './Formulario.css';
 import { Link } from "react-router-dom";
-import logo from "../../resources/images/logo.png";
 import axios from "axios";
 
-const Prevencao = () => {
+const PrevencaoQ = () => {
   const [nome, setNome] = useState("");
   const [data, setData] = useState("");
   const [hora, setHora] = useState("");
-  const [tipo, setTipo] = useState("");
   const [genero, setGenero] = useState("");
   const [idade, setIdade] = useState("");
   const [loja, setLoja] = useState("");
@@ -38,8 +36,6 @@ const Prevencao = () => {
       setData(value);
     } else if (name === "hora") {
       setHora(value);
-    } else if (name === "tipo") {
-      setTipo(value);
     } else if (name === "genero") {
       setGenero(value);
     } else if (name === "idade") {
@@ -88,7 +84,6 @@ const Prevencao = () => {
       formData.append("Nome", nome);
       formData.append("Data", formatDate(data));
       formData.append("Hora", hora);
-      formData.append("Tipo", tipo);
       formData.append("Genero", genero);
       formData.append("Idade", idade);
       formData.append("Loja", loja);
@@ -126,7 +121,6 @@ const Prevencao = () => {
         setNome("");
         setData("");
         setHora("");
-        setTipo("");
         setGenero("");
         setIdade("");
         setLoja("");
@@ -159,7 +153,6 @@ const Prevencao = () => {
     setNome("");
     setData("");
     setHora("");
-    setTipo("");
     setGenero("");
     setIdade("");
     setLoja("");
@@ -190,7 +183,7 @@ const Prevencao = () => {
       <Link to="/" className="back-button">
         <span>Voltar</span>
       </Link>
-      <h3 className="prevencao__subtitulo">Furtos</h3>
+      <h3 className="prevencao__subtitulo">Furto e Quebra</h3>
       <form className="prevencao__form" onSubmit={handleSubmit}>
 
         <div className="prevencao__input-group">
@@ -226,21 +219,6 @@ const Prevencao = () => {
             onChange={handleChange}
             required
           />
-        </div>
-
-        <div className="prevencao__input-group">
-          <label htmlFor="tipo">Furto ou Inibição?</label>
-          <select
-            id="tipo"
-            name="tipo"
-            value={tipo}
-            onChange={(event) => setTipo(event.target.value)}
-            required
-          >
-            <option value="">Selecione</option>
-            <option value="Furto">Furto</option>
-            <option value="Inibição">Inibição</option>
-          </select>
         </div>
 
         <div className="prevencao__input-group">
@@ -424,4 +402,4 @@ const Prevencao = () => {
   );
 };
 
-export default Prevencao;
+export default PrevencaoQ;

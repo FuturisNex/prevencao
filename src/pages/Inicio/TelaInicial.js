@@ -22,7 +22,7 @@ function TelaInicial() {
           <Link to="/furto" className="botao-inicio">
             <GiPoliceOfficerHead className="icone" /> Furtos
           </Link>
-          <Link to="/ocorrencia" className="botao-inicio">
+          <Link to="/degustação" className="botao-inicio">
             <PiSirenFill className="icone" /> Degustação
           </Link>
           <Link to="/descarte" className="botao-inicio">

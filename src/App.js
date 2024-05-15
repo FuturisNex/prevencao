@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Form } from 'react-router-dom';
 import TelaInicial from './pages/Inicio/TelaInicial';
 import NotFound from './pages/NotFound/NotFound';
-import Prevencao from './pages/Opcoes/Prevencao';
 import Ocorrencia from './pages/Opcoes/Ocorrencia';
 import Descarte from './pages/Opcoes/Descarte';
 import Equipamentos from './pages/Opcoes/Equipamentos';
+import FurtoMenu from './pages/Inicio/FurtoMenu';
+import DegustacaoMenu from './pages/Inicio/DegustacaoMenu';
+import PrevencaoQ from './pages/Opcoes/PreveçãoQ';
+import PrevencaoI from './pages/Opcoes/PrevencaoI';
 
 const App = () => {
   const [newVersionAvailable, setNewVersionAvailable] = useState(false);
@@ -36,8 +39,12 @@ const App = () => {
           </div>
         )}
         <Routes>
-          <Route path="/furto" element={<Prevencao />} />
-          <Route path="/ocorrencia" element={<Ocorrencia />} />
+          <Route path="/furto" element={<FurtoMenu />} />
+          <Route path="/furto-quebra" element={<PrevencaoQ />} />
+          <Route path="/furto-inibição" element={<PrevencaoI />} />
+          <Route path="/degustação" element={<DegustacaoMenu />} />
+          <Route path="/degustação-quebra" element={<Ocorrencia />} />
+          <Route path="/degustação-inibi" element={<Ocorrencia />} />
           <Route path="/descarte" element={<Descarte />} />
           <Route path="/equipamentos" element={<Equipamentos />} />
           <Route path="/enviar" element={<TelaInicial />} />
