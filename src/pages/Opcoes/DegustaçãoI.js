@@ -7,7 +7,6 @@ const DegustaçãoI = () => {
   const [nome, setNome] = useState("");
   const [data, setData] = useState("");
   const [hora, setHora] = useState("");
-  const [tipo, setTipo] = useState("");
   const [produto, setProduto] = useState("");
   const [genero, setGenero] = useState("");
   const [idade, setIdade] = useState("");
