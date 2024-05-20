@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Formulario.css';
 import { Link } from "react-router-dom";
-import logo from "../../resources/images/logo.png";
 import axios from "axios";
 
-const Ocorrencia = () => {
+const DegustaçãoQ = () => {
   const [nome, setNome] = useState("");
   const [data, setData] = useState("");
   const [hora, setHora] = useState("");
@@ -37,8 +36,6 @@ const Ocorrencia = () => {
       setIdade(value);
     } else if (name === "produto") {
       setProduto(value);
-    } else if (name === "tipo") {
-      setTipo(value);
     } else if (name === "loja") {
       setLoja(value);
     } else if (name === "ocorrencia") {
@@ -68,7 +65,6 @@ const Ocorrencia = () => {
       formData.append("Idade", idade);
       formData.append("Loja", loja);
       formData.append("Produto", produto);
-      formData.append("Tipo", tipo);
       formData.append("Ocorrencia", ocorrencia);
       formData.append("Resumo", resumo);
 
@@ -100,7 +96,6 @@ const Ocorrencia = () => {
         setIdade("");
         setLoja("");
         setProduto("");
-        setTipo("");
         setOcorrencia("");
         setResumo("");
       }, 3000);
@@ -134,7 +129,6 @@ const Ocorrencia = () => {
     setIdade("");
     setLoja("");
     setProduto("");
-    setTipo("");
     setOcorrencia("");
     setResumo("");
   };
@@ -150,7 +144,7 @@ const Ocorrencia = () => {
       <Link to="/" className="back-button">
         <span>Voltar</span>
       </Link>
-      <h3 className="prevencao__subtitulo">Degustações</h3>
+      <h3 className="prevencao__subtitulo">Degustações e Quebra</h3>
       <form className="prevencao__form" onSubmit={handleSubmit}>
 
         <div className="prevencao__input-group">
@@ -246,21 +240,6 @@ const Ocorrencia = () => {
         </div>
 
         <div className="prevencao__input-group">
-          <label htmlFor="tipo">Degustação ou Inibição?</label>
-          <select
-            id="tipo"
-            name="tipo"
-            value={tipo}
-            onChange={(event) => setTipo(event.target.value)}
-            required
-          >
-            <option value="">Selecione</option>
-            <option value="Degustação">Degustação</option>
-            <option value="Inibição">Inibição</option>
-          </select>
-        </div>
-
-        <div className="prevencao__input-group">
           <label htmlFor="produto">Produto Degustado:</label>
           <input
             type="text"
@@ -319,4 +298,4 @@ const Ocorrencia = () => {
   );
 };
 
-export default Ocorrencia;
+export default DegustaçãoQ;

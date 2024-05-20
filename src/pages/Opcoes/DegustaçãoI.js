@@ -3,21 +3,16 @@ import './Formulario.css';
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const PrevencaoI = () => {
+const DegustaçãoI = () => {
   const [nome, setNome] = useState("");
   const [data, setData] = useState("");
   const [hora, setHora] = useState("");
+  const [tipo, setTipo] = useState("");
+  const [produto, setProduto] = useState("");
   const [genero, setGenero] = useState("");
   const [idade, setIdade] = useState("");
   const [loja, setLoja] = useState("");
-  const [departamento, setDepartamento] = useState("");
-  const [identificou, setIdentificou] = useState("");
-  const [outroColaborador, setOutroColaborador] = useState("");
-  const [utilizou, setUtilizou] = useState("");
-  const [outroObjeto, setOutroObjeto] = useState("");
   const [ocorrencia, setOcorrencia] = useState("");
-  const [produto, setProduto] = useState("");
-  const [recuperado, setRecuperado] = useState("");
   const [resumo, setResumo] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -25,8 +20,7 @@ const PrevencaoI = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [outroColaboradorText, setOutroColaboradorText] = useState("");
-  const [outroObjetoText, setOutroObjetoText] = useState("");
+
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -40,31 +34,14 @@ const PrevencaoI = () => {
       setGenero(value);
     } else if (name === "idade") {
       setIdade(value);
-    } else if (name === "loja") {
-      setLoja(value);
-    } else if (name === "departamento") {
-      setDepartamento(value);
-    } else if (name === "identificou") {
-      setIdentificou(value);
-    } else if (name === "outroColaborador") {
-      setOutroColaborador(value);
-    } else if (name === "outroObjeto") {
-      if (value !== "Outro") {
-        setOutroObjetoText("");
-      }
-      setOutroObjeto(value);
     } else if (name === "produto") {
       setProduto(value);
+    } else if (name === "loja") {
+      setLoja(value);
     } else if (name === "ocorrencia") {
       setOcorrencia(value);
-    } else if (name === "recuperado") {
-      setRecuperado(value);
     } else if (name === "resumo") {
       setResumo(value);
-    } else if (name === "outroColaboradorText") {
-      setOutroColaboradorText(value);
-    } else if (name === "outroObjetoText") {
-      setOutroObjetoText(value);
     }
   };
 
@@ -87,20 +64,14 @@ const PrevencaoI = () => {
       formData.append("Genero", genero);
       formData.append("Idade", idade);
       formData.append("Loja", loja);
-      formData.append("Departamento", departamento);
-      formData.append("Identificou", identificou);
-      formData.append("OutroColaborador", outroColaborador === "outroColaborador" ? outroColaboradorText : "");
-      formData.append("Utilizou", utilizou);
-      formData.append("OutroObjeto", utilizou === "outroObjeto" ? outroObjetoText : "");
       formData.append("Produto", produto);
       formData.append("Ocorrencia", ocorrencia);
-      formData.append("Recuperado", recuperado);
       formData.append("Resumo", resumo);
 
       setIsSending(true);
 
       await axios.post(
-        "https://script.google.com/macros/s/AKfycbz8h12NijjJOcf5qc2aCB9YC2D3GP3-ZEepXLBMGNBmzthKgc4YDlXRZHwpZUcIMbS2FQ/exec",
+        "https://script.google.com/macros/s/AKfycbwwB58vcG3zdkd3DgJ13RK0Ex4jjgmlz6_KUu0ZM4jSnaWmssWsSQ6depOjZr-trpijtg/exec",
         formData
       );
 
@@ -124,14 +95,8 @@ const PrevencaoI = () => {
         setGenero("");
         setIdade("");
         setLoja("");
-        setDepartamento("");
-        setIdentificou("");
-        setOutroColaborador("");
-        setUtilizou("");
-        setOutroObjeto("");
-        setOcorrencia("");
         setProduto("");
-        setRecuperado("");
+        setOcorrencia("");
         setResumo("");
       }, 3000);
 
@@ -149,6 +114,13 @@ const PrevencaoI = () => {
     setSuccessMessage("");
   };
 
+  const handleOpenExcelLink = () => {
+    window.open(
+      "https://lookerstudio.google.com/reporting/bc184541-8cc5-47c0-9298-e0746dd5a47c",
+      "_blank"
+    );
+  };
+
   const resetForm = () => {
     setNome("");
     setData("");
@@ -156,20 +128,9 @@ const PrevencaoI = () => {
     setGenero("");
     setIdade("");
     setLoja("");
-    setDepartamento("");
-    setIdentificou("");
-    setOcorrencia("");
-    setUtilizou("");
     setProduto("");
-    setRecuperado("");
+    setOcorrencia("");
     setResumo("");
-  };
-
-  const handleOpenLink = () => {
-    const isMobile = window.innerWidth <= 768;
-    const link = isMobile ? "https://lookerstudio.google.com/reporting/6ee0737d-4039-45dd-a9c6-565508546dda" : "https://lookerstudio.google.com/reporting/bc184541-8cc5-47c0-9298-e0746dd5a47c";
-
-    window.open(link, "_blank");
   };
 
   return (
@@ -183,7 +144,7 @@ const PrevencaoI = () => {
       <Link to="/" className="back-button">
         <span>Voltar</span>
       </Link>
-      <h3 className="prevencao__subtitulo">Furtos e Inibição</h3>
+      <h3 className="prevencao__subtitulo">Degustações e Inibição</h3>
       <form className="prevencao__form" onSubmit={handleSubmit}>
 
         <div className="prevencao__input-group">
@@ -246,10 +207,10 @@ const PrevencaoI = () => {
             required
           >
             <option value="">Selecione</option>
-            <option value="10 a 15 Anos">10 a 15 Anos</option>
-            <option value="15 a 18 Anos">15 a 18 Anos</option>
-            <option value="18 a 20 Anos">18 a 20 Anos</option>
-            <option value="20 a 30 Anos">20 a 30 Anos</option>
+            <option value="De 10 a 15 Anos">De 10 a 15 Anos</option>
+            <option value="De 15 a 18 Anos">De 15 a 18 Anos</option>
+            <option value="De 18 a 20 Anos">De 18 a 20 Anos</option>
+            <option value="De 20 a 30 Anos">De 20 a 30 Anos</option>
             <option value="Maior que 30 Anos">Maior que 30 Anos</option>
             <option value="Maior que 40 Anos">Maior que 40 Anos</option>
             <option value="Maior que 50 Anos">Maior que 50 Anos</option>
@@ -279,39 +240,15 @@ const PrevencaoI = () => {
         </div>
 
         <div className="prevencao__input-group">
-          <label htmlFor="departamento">Departamento:</label>
-          <select
-            id="departamento"
-            name="departamento"
-            value={departamento}
-            onChange={(event) => setDepartamento(event.target.value)}
+          <label htmlFor="produto">Produto Degustado:</label>
+          <input
+            type="text"
+            id="produto"
+            name="produto"
+            value={produto}
+            onChange={handleChange}
             required
-          >
-            <option value="">Selecione</option>
-            <option value="Commodities">Commodities</option>
-            <option value="Frios e Laticinios">Frios e Laticinios</option>
-            <option value="Higiene">Higiene</option>
-            <option value="Perfumaria">Perfumaria</option>
-            <option value="Hortifruti">Hortifruti</option>
-            <option value="Doces">Doces</option>
-          </select>
-        </div>
-
-        <div className="prevencao__input-group">
-          <label htmlFor="identificou">Quem identificou?</label>
-          <select
-            id="identificou"
-            name="identificou"
-            value={identificou}
-            onChange={(event) => setIdentificou(event.target.value)}
-            required
-          >
-            <option value="">Selecione</option>
-            <option value="CFTV">CFTV</option>
-            <option value="Prevenção de Piso">Prevenção de Piso</option>
-            <option value="Cliente">Cliente</option>
-            <option value="Colaborador">Colaborador</option>
-          </select>
+          />
         </div>
 
         <div className="prevencao__input-group">
@@ -331,54 +268,13 @@ const PrevencaoI = () => {
         </div>
 
         <div className="prevencao__input-group">
-          <label htmlFor="utilizou">Utilizou algum objeto para praticar o furto?</label>
-          <select
-            id="utilizou"
-            name="utilizou"
-            value={utilizou}
-            onChange={(event) => setUtilizou(event.target.value)}
-            required
-          >
-            <option value="">Selecione</option>
-            <option value="Mochila">Mochila</option>
-            <option value="Sacola">Sacola</option>
-            <option value="Roupa">Roupa</option>
-            <option value="Caixa de Papelão">Caixa de Papelão</option>
-            <option value="Nenhum objeto foi utilizado">Nenhum objeto foi utilizado</option>
-          </select>
-        </div>
-
-        <div className="prevencao__input-group">
-          <label htmlFor="produto">Produto Furtado:</label>
-          <input
-            type="text"
-            id="produto"
-            name="produto"
-            value={produto}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="prevencao__input-group">
-          <label htmlFor="recuperado">Valor Recuperado:</label>
-          <input
-            type="text"
-            id="recuperado"
-            name="recuperado"
-            value={recuperado}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="prevencao__input-group">
-          <label htmlFor="resumo">Resumo da Ocorrencia:</label>
+          <label htmlFor="resumo">Resumo da Ocorrência:</label>
           <textarea
             id="resumo"
             name="resumo"
             value={resumo}
             onChange={handleChange}
+            required
           />
         </div>
         <div className='button_lista'>
@@ -392,7 +288,7 @@ const PrevencaoI = () => {
           <button
             type="button"
             className="prevencao__avancar"
-            onClick={handleOpenLink}
+            onClick={handleOpenExcelLink}
           >
             Lista
           </button>
@@ -402,4 +298,4 @@ const PrevencaoI = () => {
   );
 };
 
-export default PrevencaoI;
+export default DegustaçãoI;
