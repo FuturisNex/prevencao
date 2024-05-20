@@ -7,7 +7,6 @@ const DegustaçãoQ = () => {
   const [nome, setNome] = useState("");
   const [data, setData] = useState("");
   const [hora, setHora] = useState("");
-  const [tipo, setTipo] = useState("");
   const [produto, setProduto] = useState("");
   const [genero, setGenero] = useState("");
   const [idade, setIdade] = useState("");
@@ -71,7 +70,7 @@ const DegustaçãoQ = () => {
       setIsSending(true);
 
       await axios.post(
-        "https://script.google.com/macros/s/AKfycbwZb6Ru5J-aWJlpbC_8b-llXALERIF8QlyjGQpsoPETNMHDctCJ6Q1PxaL8kOAUFKZy/exec",
+        "https://script.google.com/macros/s/AKfycbwwB58vcG3zdkd3DgJ13RK0Ex4jjgmlz6_KUu0ZM4jSnaWmssWsSQ6depOjZr-trpijtg/exec",
         formData
       );
 
@@ -144,7 +143,7 @@ const DegustaçãoQ = () => {
       <Link to="/" className="back-button">
         <span>Voltar</span>
       </Link>
-      <h3 className="prevencao__subtitulo">Degustações e Quebra</h3>
+      <h3 className="prevencao__subtitulo">Degustações e Inibição</h3>
       <form className="prevencao__form" onSubmit={handleSubmit}>
 
         <div className="prevencao__input-group">
