@@ -100,7 +100,7 @@ const PrevencaoI = () => {
       setIsSending(true);
 
       await axios.post(
-        "https://script.google.com/macros/s/AKfycbz8h12NijjJOcf5qc2aCB9YC2D3GP3-ZEepXLBMGNBmzthKgc4YDlXRZHwpZUcIMbS2FQ/exec",
+        "https://script.google.com/macros/s/AKfycbypybJwyTT0RBGLMONP3Yldpn-AQ9R9Tv8I146QN7X6v4yVgF9ji_VLFHh9hP8hViY-og/exec",
         formData
       );
 

@@ -70,7 +70,7 @@ const DegustaçãoQ = () => {
       setIsSending(true);
 
       await axios.post(
-        "https://script.google.com/macros/s/AKfycbwwB58vcG3zdkd3DgJ13RK0Ex4jjgmlz6_KUu0ZM4jSnaWmssWsSQ6depOjZr-trpijtg/exec",
+        "https://script.google.com/macros/s/AKfycbwR2APa_cqOlxbg4NHqsRGezuKByNmnHl4PDTObdcMw-JwRPPbYlUgiGxJ7fFVRp6x7YQ/exec",
         formData
       );
 
