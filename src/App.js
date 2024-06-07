@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Form } from 'react-router-dom';
 import TelaInicial from './pages/Inicio/TelaInicial';
 import NotFound from './pages/NotFound/NotFound';
-import Ocorrencia from './pages/Opcoes/DegustaçãoQ';
-import Descarte from './pages/Opcoes/Descarte';
+import LossForm from './pages/Opcoes/LossForm';
 import Equipamentos from './pages/Opcoes/Equipamentos';
 import FurtoMenu from './pages/Inicio/FurtoMenu';
 import DegustacaoMenu from './pages/Inicio/DegustacaoMenu';
@@ -11,6 +10,8 @@ import PrevencaoQ from './pages/Opcoes/PreveçãoQ';
 import PrevencaoI from './pages/Opcoes/PrevencaoI';
 import DegustaçãoQ from './pages/Opcoes/DegustaçãoQ';
 import DegustaçãoI from './pages/Opcoes/DegustaçãoI';
+import LossVisualization from './pages/Opcoes/DescarteGrafico';
+import Descarte from './pages/Inicio/DescarteMenu';
 
 const App = () => {
   const [newVersionAvailable, setNewVersionAvailable] = useState(false);
@@ -46,6 +47,8 @@ const App = () => {
           <Route path="/furto-inibição" element={<PrevencaoI />} />
           <Route path="/degustação" element={<DegustacaoMenu />} />
           <Route path="/degustação-quebra" element={<DegustaçãoQ />} />
+          <Route path="/descarte-visual" element={<LossVisualization />} />
+          <Route path="/descarte-form" element={<LossForm />} />
           <Route path="/degustação-inibição" element={<DegustaçãoI />} />
           <Route path="/descarte" element={<Descarte />} />
           <Route path="/equipamentos" element={<Equipamentos />} />

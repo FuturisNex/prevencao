@@ -1,0 +1,53 @@
+.loss-form-container {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loss-form-title {
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.loss-form-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.loss-form-formcontrol {
+  margin-bottom: 15px;
+}
+
+.loss-form-product-box {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fff;
+  margin-bottom: 15px;
+}
+
+.loss-form-product-box > :not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.loss-form-textfield {
+  margin-bottom: 0;
+}
+
+.loss-form-quantity-textfield {
+  margin-left: 15px;
+}
+
+.loss-form-button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.loss-form-button:hover {
+  background-color: #0056b3;
+}
