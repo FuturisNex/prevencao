@@ -5,8 +5,8 @@ import './LossForm.css';
 
 const LossForm = () => {
   const [store, setStore] = useState('');
-  const [department, setDepartment] = useState('padaria');
-  const [month, setMonth] = useState('Janeiro');
+  const [department, setDepartment] = useState('');
+  const [month, setMonth] = useState('');
   const [products, setProducts] = useState(Array(5).fill({ description: '', quantity: '' }));
   const [lossSale, setLossSale] = useState('');
   const [lossCost, setLossCost] = useState('');

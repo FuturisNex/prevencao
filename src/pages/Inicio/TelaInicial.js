@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaToolbox } from 'react-icons/fa';
 import { GiPoliceOfficerHead } from "react-icons/gi";
-import { BsClipboard2Fill } from "react-icons/bs";
+import { BiSolidDonateHeart } from "react-icons/bi";
 import { PiSirenFill } from "react-icons/pi";
 import { GiCardDiscard } from "react-icons/gi";
 import logo from "../../resources/images/logo.png";
@@ -27,6 +27,9 @@ function TelaInicial() {
           </Link>
           <Link to="/descarte" className="botao-inicio">
             <GiCardDiscard className="icone" /> Descartes
+          </Link>
+          <Link to="/doacao" className="botao-inicio">
+            <BiSolidDonateHeart className="icone" /> Doações
           </Link>
           <Link to="/equipamentos" className="botao-inicio">
             <FaToolbox className="icone" /> Equipamentos

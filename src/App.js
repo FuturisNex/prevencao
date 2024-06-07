@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Form } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TelaInicial from './pages/Inicio/TelaInicial';
 import NotFound from './pages/NotFound/NotFound';
 import LossForm from './pages/Opcoes/LossForm';
@@ -12,6 +12,7 @@ import DegustaçãoQ from './pages/Opcoes/DegustaçãoQ';
 import DegustaçãoI from './pages/Opcoes/DegustaçãoI';
 import LossVisualization from './pages/Opcoes/DescarteGrafico';
 import Descarte from './pages/Inicio/DescarteMenu';
+import Doações from './pages/Opcoes/Doação';
 
 const App = () => {
   const [newVersionAvailable, setNewVersionAvailable] = useState(false);
@@ -51,6 +52,7 @@ const App = () => {
           <Route path="/descarte-form" element={<LossForm />} />
           <Route path="/degustação-inibição" element={<DegustaçãoI />} />
           <Route path="/descarte" element={<Descarte />} />
+          <Route path="/doacao" element={<Doações />} />
           <Route path="/equipamentos" element={<Equipamentos />} />
           <Route path="/enviar" element={<TelaInicial />} />
           <Route path="/" element={<TelaInicial />} />
