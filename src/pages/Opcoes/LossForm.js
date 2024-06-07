@@ -45,8 +45,11 @@ const LossForm = () => {
             <MenuItem value="Santa Monica">Santa Monica</MenuItem>
             <MenuItem value="Castro Alves">Castro Alves</MenuItem>
             <MenuItem value="Fraga Maia">Fraga Maia</MenuItem>
-            <MenuItem value="Artemia Express">Artemia</MenuItem>
+            <MenuItem value="Artemia Pires">Artemia</MenuItem>
             <MenuItem value="Tomé de Souza">Tomé de Souza</MenuItem>
+            <MenuItem value="Artemia Express">Artemia Express</MenuItem>
+            <MenuItem value="Calamar Express">Calamar Express</MenuItem>
+            <MenuItem value="Santo Estevão">Santo Estevão</MenuItem>
           </Select>
         </FormControl>
         <FormControl fullWidth margin="normal" required className="loss-form-formcontrol">
