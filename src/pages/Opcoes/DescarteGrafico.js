@@ -19,7 +19,8 @@ import {
     Tooltip,
     CartesianGrid,
     ResponsiveContainer,
-    LabelList
+    LabelList,
+    Label
 } from 'recharts';
 import { saveAs } from 'file-saver';
 import { PDFDocument, rgb } from 'pdf-lib';
@@ -209,7 +210,9 @@ const LossVisualization = () => {
             <ResponsiveContainer width="100%" height={300}>
                 <BarChart ref={chartRef} data={filteredData}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
+                    <XAxis dataKey="name">
+                        <Label value="Perdas" position="bottom" />
+                    </XAxis>
                     <YAxis allowDecimals={true} />
                     <Tooltip />
                     <Bar dataKey="lossSale" name="Valor da perda (venda)" fill="#32CD32">
@@ -245,7 +248,7 @@ const LossVisualization = () => {
                             dataKey={product.description}
                             fill={`rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.7)`}
                         >
-                            <LabelList dataKey={product.description} position="outside" fill="#000000" formatter={(value) => `${product.description}: ${value}`} />
+                            <LabelList dataKey={product.description} position="outside" fill="#2e2e2e" formatter={(value) => `${product.description}: ${value}`} />
                         </Bar>
                     ))}
                 </BarChart>
