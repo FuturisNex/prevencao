@@ -9,6 +9,7 @@ import {
     Box,
     CircularProgress,
     Grid,
+    IconButton
 } from '@mui/material';
 import {
     BarChart,
@@ -21,7 +22,7 @@ import {
     LabelList
 } from 'recharts';
 import { saveAs } from 'file-saver';
-import { PDFDocument } from 'pdf-lib';
+import { PDFDocument, rgb } from 'pdf-lib';
 import SVGtoPDF from 'svg-to-pdfkit';
 import database from '../../auth/firebase';
 import GetAppIcon from '@mui/icons-material/GetApp';
@@ -85,7 +86,9 @@ const LossVisualization = () => {
 
                     const totalLossSale = filteredData.reduce((acc, curr) => acc + parseFloat(curr.lossSale), 0);
                     const totalLossCost = filteredData.reduce((acc, curr) => acc + parseFloat(curr.lossCost), 0);
-                    setFilteredData([{ name: 'Valor da perda (venda)', value: totalLossSale }, { name: 'Valor da perda (custo)', value: totalLossCost }]);
+                    setFilteredData([
+                        { name: 'Perdas', lossSale: totalLossSale, lossCost: totalLossCost }
+                    ]);
                     setTop5(sortedTop5);
                 } else {
                     console.log('Nenhum dado encontrado.');
@@ -209,11 +212,11 @@ const LossVisualization = () => {
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
-                    <Bar dataKey="value" name="Valor da perda (venda)" fill="#32CD32"> {/* Verde bonito */}
-                        <LabelList dataKey="value" position="top" fill="#ffffff" />
+                    <Bar dataKey="lossSale" name="Valor da perda (venda)" fill="#32CD32">
+                        <LabelList dataKey="lossSale" position="top" fill="#ffffff" />
                     </Bar>
-                    <Bar dataKey="value" name="Valor da perda (custo)" fill="#FFA500"> {/* Laranja bonito */}
-                        <LabelList dataKey="value" position="top" fill="#ffffff" />
+                    <Bar dataKey="lossCost" name="Valor da perda (custo)" fill="#FFA500">
+                        <LabelList dataKey="lossCost" position="top" fill="#ffffff" />
                     </Bar>
                 </BarChart>
             </ResponsiveContainer>
