@@ -7,10 +7,10 @@ const Doações = () => {
     const [nome, setNome] = useState("");
     const [data, setData] = useState("");
     const [loja, setLoja] = useState("");
-    const [identificou, setIdentificou] = useState("");
     const [produto, setProduto] = useState("");
     const [quantidade, setQuantidade] = useState("");
     const [instituicao, setInstituicao] = useState("");
+    const [observacao, setObservacao] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -32,6 +32,8 @@ const Doações = () => {
             setQuantidade(value);
         } else if (name === "instituicao") {
             setInstituicao(value);
+        } else if (name === "observacao") {
+            setObservacao(value);
         }
     };
 
@@ -50,14 +52,16 @@ const Doações = () => {
             const formData = new FormData();
             formData.append("Nome", nome);
             formData.append("Data", formatDate(data));
+            formData.append("Loja", loja);
             formData.append("Produto", produto);
             formData.append("Quantidade", quantidade);
             formData.append("Instituicao", instituicao);
+            formData.append("Observacao", observacao);
 
             setIsSending(true);
 
             await axios.post(
-                "https://script.google.com/macros/s/AKfycbwN-86reWdbhE0_ZW8zK-vA7lU2eLr5L1OIRRT7xGe_DcPx0Hkt9SybVCx-lO4kisgPcA/exec",
+                "https://script.google.com/macros/s/AKfycbxZy4NbREbl5zCNzeK-sZt_Qm8xAcuKngky_kYd-3KeWnjfw6YSONMfOckD6iAgPe2nrA/exec",
                 formData
             );
 
@@ -77,9 +81,11 @@ const Doações = () => {
                 setIsSubmitted(false);
                 setNome("");
                 setData("");
+                setLoja("");
                 setProduto("");
                 setQuantidade("");
                 setInstituicao("");
+                setObservacao("");
             }, 3000);
 
             return () => clearTimeout(timer);
@@ -99,9 +105,11 @@ const Doações = () => {
     const resetForm = () => {
         setNome("");
         setData("");
+        setLoja("");
         setProduto("");
         setQuantidade("");
         setInstituicao("");
+        setObservacao("");
     };
 
     const handleOpenLink = () => {
@@ -205,7 +213,16 @@ const Doações = () => {
                         required
                     />
                 </div>
-
+                <div className="prevencao__input-group">
+                    <label htmlFor="observacao">Observação:</label>
+                    <textarea
+                        id="observacao"
+                        name="observacao"
+                        value={observacao}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
                 <div className='button_lista'>
                     <button
                         type="submit"
