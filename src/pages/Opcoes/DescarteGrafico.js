@@ -87,7 +87,7 @@ const LossVisualization = () => {
                     const totalLossSale = filteredData.reduce((acc, curr) => acc + parseFloat(curr.lossSale), 0);
                     const totalLossCost = filteredData.reduce((acc, curr) => acc + parseFloat(curr.lossCost), 0);
                     setFilteredData([
-                        { name: 'Perdas', lossSale: totalLossSale, lossCost: totalLossCost }
+                        { name: 'Perdas', lossSale: totalLossSale.toFixed(2), lossCost: totalLossCost.toFixed(2) }
                     ]);
                     setTop5(sortedTop5);
                 } else {
@@ -210,13 +210,13 @@ const LossVisualization = () => {
                 <BarChart ref={chartRef} data={filteredData}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
-                    <YAxis />
+                    <YAxis allowDecimals={true} />
                     <Tooltip />
                     <Bar dataKey="lossSale" name="Valor da perda (venda)" fill="#32CD32">
-                        <LabelList dataKey="lossSale" position="top" fill="#ffffff" />
+                        <LabelList dataKey="lossSale" position="top" fill="#2e2e2e" />
                     </Bar>
                     <Bar dataKey="lossCost" name="Valor da perda (custo)" fill="#FFA500">
-                        <LabelList dataKey="lossCost" position="top" fill="#ffffff" />
+                        <LabelList dataKey="lossCost" position="top" fill="#2e2e2e" />
                     </Bar>
                 </BarChart>
             </ResponsiveContainer>
@@ -236,7 +236,7 @@ const LossVisualization = () => {
                     })}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis type="number" />
+                    <XAxis type="number" allowDecimals={true} />
                     <YAxis dataKey="name" type="category" />
                     <Tooltip />
                     {top5.length > 0 && top5[0].products.map((product, index) => (
@@ -245,7 +245,7 @@ const LossVisualization = () => {
                             dataKey={product.description}
                             fill={`rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.7)`}
                         >
-                            <LabelList dataKey={product.description} position="insideRight" fill="#ffffff" formatter={(value) => `${product.description}: ${value}`} />
+                            <LabelList dataKey={product.description} position="outside" fill="#000000" formatter={(value) => `${product.description}: ${value}`} />
                         </Bar>
                     ))}
                 </BarChart>
