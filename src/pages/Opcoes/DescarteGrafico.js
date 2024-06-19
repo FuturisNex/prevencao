@@ -9,7 +9,6 @@ import {
     Box,
     CircularProgress,
     Grid,
-    IconButton
 } from '@mui/material';
 import {
     BarChart,
@@ -22,7 +21,7 @@ import {
     LabelList
 } from 'recharts';
 import { saveAs } from 'file-saver';
-import { PDFDocument, rgb } from 'pdf-lib';
+import { PDFDocument } from 'pdf-lib';
 import SVGtoPDF from 'svg-to-pdfkit';
 import database from '../../auth/firebase';
 import GetAppIcon from '@mui/icons-material/GetApp';
@@ -210,7 +209,10 @@ const LossVisualization = () => {
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
-                    <Bar dataKey="value" fill="#8884d8">
+                    <Bar dataKey="value" name="Valor da perda (venda)" fill="#32CD32"> {/* Verde bonito */}
+                        <LabelList dataKey="value" position="top" fill="#ffffff" />
+                    </Bar>
+                    <Bar dataKey="value" name="Valor da perda (custo)" fill="#FFA500"> {/* Laranja bonito */}
                         <LabelList dataKey="value" position="top" fill="#ffffff" />
                     </Bar>
                 </BarChart>
