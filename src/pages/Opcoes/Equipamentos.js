@@ -209,6 +209,7 @@ const Equipamentos = () => {
             <option value="Antenas">Antenas</option>
             <option value="Sensores">Sensores</option>
             <option value="Alarmes">Alarmes</option>
+            <option value="Carregadores">Carregadores</option>
           </select>
         </div>
 

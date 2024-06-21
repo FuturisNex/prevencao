@@ -9,7 +9,6 @@ import {
     Box,
     CircularProgress,
     Grid,
-    IconButton
 } from '@mui/material';
 import {
     BarChart,
@@ -23,7 +22,7 @@ import {
     Label
 } from 'recharts';
 import { saveAs } from 'file-saver';
-import { PDFDocument, rgb } from 'pdf-lib';
+import { PDFDocument } from 'pdf-lib';
 import SVGtoPDF from 'svg-to-pdfkit';
 import database from '../../auth/firebase';
 import GetAppIcon from '@mui/icons-material/GetApp';
