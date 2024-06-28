@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import LoginPage from './User/LoginPage';
 import TelaInicial from './pages/Inicio/TelaInicial';
 import NotFound from './pages/NotFound/NotFound';
 import LossForm from './pages/Opcoes/LossForm';
@@ -13,26 +14,29 @@ import DegustaçãoI from './pages/Opcoes/DegustaçãoI';
 import LossVisualization from './pages/Opcoes/DescarteGrafico';
 import Descarte from './pages/Inicio/DescarteMenu';
 import Doações from './pages/Opcoes/Doação';
+import Cookies from 'js-cookie';
 
 const App = () => {
   const [newVersionAvailable, setNewVersionAvailable] = useState(false);
+  const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
-    const checkForNewVersion = async () => {
-      try {
-        const response = await fetch('/api/check-for-update');
-        const data = await response.json();
-        if (data.newVersionAvailable) {
-          setNewVersionAvailable(true);
-        }
-      } catch (error) {
-        console.error('Erro ao verificar nova versão:', error);
-      }
+    const checkAuthentication = () => {
+      const isAuthenticated = Cookies.get('authenticated');
+      setAuthenticated(isAuthenticated === 'true'); // Converte para booleano
     };
 
-    const interval = setInterval(checkForNewVersion, 86400000);
-    return () => clearInterval(interval);
+    checkAuthentication();
   }, []);
+
+  const handleLogin = () => {
+    setAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    Cookies.remove('authenticated', { path: '/' }); // Remove o cookie
+    setAuthenticated(false);
+  };
 
   return (
     <Router>
@@ -43,6 +47,7 @@ const App = () => {
           </div>
         )}
         <Routes>
+          <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
           <Route path="/furto" element={<FurtoMenu />} />
           <Route path="/furto-quebra" element={<PrevencaoQ />} />
           <Route path="/furto-inibição" element={<PrevencaoI />} />
@@ -54,8 +59,7 @@ const App = () => {
           <Route path="/descarte" element={<Descarte />} />
           <Route path="/doacao" element={<Doações />} />
           <Route path="/equipamentos" element={<Equipamentos />} />
-          <Route path="/enviar" element={<TelaInicial />} />
-          <Route path="/" element={<TelaInicial />} />
+          <Route path="/" element={authenticated ? <TelaInicial /> : <Navigate to="/login" />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

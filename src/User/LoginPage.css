@@ -1,0 +1,58 @@
+/* Estilos para a página de login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura total da viewport */
+    background-color: #f8f9fa; /* Cor de fundo */
+  }
+  
+  .login-form {
+    width: 300px; /* Largura do formulário */
+    padding: 20px;
+    background-color: #ffffff; /* Cor de fundo do formulário */
+    border: 1px solid #e9ecef; /* Borda */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+  }
+  
+  .login-form h2 {
+    text-align: center; /* Centraliza o título */
+    margin-bottom: 20px;
+    color: #343a40; /* Cor do título */
+  }
+  
+  .login-form label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #495057; /* Cor do texto */
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ced4da; /* Cor da borda do input */
+    border-radius: 3px;
+  }
+  
+  .login-form button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #007bff; /* Cor do botão */
+    color: #ffffff; /* Cor do texto do botão */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .login-form button:hover {
+    background-color: #0056b3; /* Cor do botão ao passar o mouse */
+  }
+  
+  .error-message {
+    margin-top: 10px;
+    color: #dc3545; /* Cor do texto de erro */
+  }
+  
