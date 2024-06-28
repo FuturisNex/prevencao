@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import database from '../auth/firebase';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +9,18 @@ const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Verifica se o usuário já está autenticado ao montar o componente
+    const checkAuthentication = () => {
+      const isAuthenticated = Cookies.get('authenticated');
+      if (isAuthenticated === 'true') {
+        navigate('/'); // Redireciona para a tela inicial se já estiver autenticado
+      }
+    };
+
+    checkAuthentication();
+  }, [navigate]); // Executa quando o componente é montado ou quando 'navigate' muda
 
   const handleLogin = async (event) => {
     event.preventDefault();

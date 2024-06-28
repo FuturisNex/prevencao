@@ -27,10 +27,11 @@ const App = () => {
     };
 
     checkAuthentication();
-  }, []);
+  }, []); // Executa apenas uma vez ao montar o componente
 
   const handleLogin = () => {
     setAuthenticated(true);
+    Cookies.set('authenticated', 'true', { expires: 1, path: '/' }); // Define o cookie após o login
   };
 
   const handleLogout = () => {
